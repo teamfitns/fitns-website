@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Race Goal Pace Calculator | FitNS.Arc</title>
+
+    <meta name="description"
+        content="Find the running pace and speed required to achieve your target 5K, 10K, half marathon or marathon time with FitNS.Arc.">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h2>FitNS.Arc</h2>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="coaching.html">Coaching</a>
+
+        <a href="tools.html">Tools</a>
+
+        <a href="index.html#about">About</a>
+
+    </nav>
+
+    <a href="apply.html">
+        GET COACHED
+    </a>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section>
+
+    <p>FITNS.ARC / RACE GOAL CALCULATOR</p>
+
+    <h1>
+        What's Your<br>
+        Race Goal?
+    </h1>
+
+    <p>
+        Enter your target race time and find out exactly
+        what pace you need to run.
+    </p>
+
+</section>
+
+
+
+<!-- CALCULATOR -->
+
+<section>
+
+    <div class="race-card">
+
+        <h2>Race Goal Calculator</h2>
+
+        <p>
+            Choose your race distance and target finish time.
+        </p>
+
+
+        <form id="raceForm">
+
+
+            <!-- DISTANCE -->
+
+            <div class="field full">
+
+                <label for="distance">
+                    Race Distance
+                </label>
+
+                <select id="distance" required>
+
+                    <option value="5">
+                        5K
+                    </option>
+
+                    <option value="10">
+                        10K
+                    </option>
+
+                    <option value="21.0975">
+                        Half Marathon — 21.1K
+                    </option>
+
+                    <option value="42.195">
+                        Marathon — 42.2K
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- HOURS -->
+
+            <div class="field">
+
+                <label for="hours">
+                    Target Hours
+                </label>
+
+                <input
+                    type="number"
+                    id="hours"
+                    min="0"
+                    max="99"
+                    value="0"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- MINUTES -->
+
+            <div class="field">
+
+                <label for="minutes">
+                    Target Minutes
+                </label>
+
+                <input
+                    type="number"
+                    id="minutes"
+                    min="0"
+                    max="59"
+                    value="30"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- SECONDS -->
+
+            <div class="field full">
+
+                <label for="seconds">
+                    Target Seconds
+                </label>
+
+                <input
+                    type="number"
+                    id="seconds"
+                    min="0"
+                    max="59"
+                    value="0"
+                    required
+                >
+
+            </div>
+
+
+
+            <button type="submit">
+
+                CALCULATE MY PACE →
+
+            </button>
+
+
+        </form>
+
+
+
+        <!-- RESULTS -->
+
+        <div
+            id="results"
+            class="race-results"
+        >
+
+            <p class="result-label">
+                YOUR TARGET
+            </p>
+
+
+            <div class="main-result">
+
+                <span>
+                    REQUIRED PACE
+                </span>
+
+                <strong id="pace">
+                    --
+                </strong>
+
+                <small>
+                    min/km
+                </small>
+
+            </div>
+
+
+            <div class="result-grid">
+
+
+                <div>
+
+                    <span>
+                        SPEED
+                    </span>
+
+                    <strong id="speed">
+                        --
+                    </strong>
+
+                    <small>
+                        km/h
+                    </small>
+
+                </div>
+
+
+
+                <div>
+
+                    <span>
+                        PER MILE
+                    </span>
+
+                    <strong id="milePace">
+                        --
+                    </strong>
+
+                    <small>
+                        min/mile
+                    </small>
+
+                </div>
+
+
+
+                <div>
+
+                    <span>
+                        FINISH TIME
+                    </span>
+
+                    <strong id="finishTime">
+                        --
+                    </strong>
+
+                    <small>
+                        target
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- SPLITS -->
+
+            <div class="splits">
+
+                <h3>
+                    Race Splits
+                </h3>
+
+
+                <div id="splitResults">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- EXPLANATION -->
+
+<section>
+
+    <p>
+        RACE DAY
+    </p>
+
+    <h2>
+        Your target time is only
+        the beginning.
+    </h2>
+
+    <p>
+        A successful race requires more than knowing your
+        target pace. Training progression, pacing strategy,
+        recovery, nutrition and race-day conditions all matter.
+    </p>
+
+</section>
+
+
+
+<!-- CTA -->
+
+<section>
+
+    <p>
+        HAVE A RACE GOAL?
+    </p>
+
+    <h2>
+        Let's build the training
+        behind the number.
+    </h2>
+
+    <p>
+        FitNS.Arc Running & Marathon Coaching creates
+        structured training around your target race.
+    </p>
+
+    <a href="running.html">
+        EXPLORE RUNNING COACHING →
+    </a>
+
+</section>
+
+
+
+<footer>
+
+    <h3>
+        FitNS.Arc
+    </h3>
+
+    <p>
+        Train. Fuel. Perform.
+    </p>
+
+    <p>
+        © 2026 FitNS.Arc. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<style>
+
+.race-card {
+
+    max-width: 800px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.08);
+
+}
+
+
+#raceForm {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 22px;
+
+    margin-top: 30px;
+
+}
+
+
+.field {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.field.full {
+
+    grid-column:
+        1 / -1;
+
+}
+
+
+.field label {
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+
+}
+
+
+.field input,
+.field select {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #d5d5d5;
+
+    border-radius: 7px;
+
+    background: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+}
+
+
+#raceForm button {
+
+    grid-column:
+        1 / -1;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #111;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.race-results {
+
+    display: none;
+
+    margin-top: 40px;
+
+    padding: 35px;
+
+    background: #f5f5f3;
+
+    border-radius: 10px;
+
+}
+
+
+.result-label {
+
+    text-align: center;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.main-result {
+
+    text-align: center;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    margin-top: 20px;
+
+}
+
+
+.main-result span {
+
+    display: block;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #666;
+
+}
+
+
+.main-result strong {
+
+    display: block;
+
+    font-size: 64px;
+
+    line-height: 1.1;
+
+    margin: 8px 0;
+
+}
+
+
+.main-result small {
+
+    color: #777;
+
+}
+
+
+.result-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 15px;
+
+}
+
+
+.result-grid div {
+
+    background: white;
+
+    padding: 20px;
+
+    text-align: center;
+
+    border-radius: 8px;
+
+}
+
+
+.result-grid span {
+
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #666;
+
+}
+
+
+.result-grid strong {
+
+    display: block;
+
+    font-size: 25px;
+
+    margin: 5px 0;
+
+}
+
+
+.result-grid small {
+
+    color: #777;
+
+}
+
+
+.splits {
+
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #ddd;
+
+}
+
+
+.splits h3 {
+
+    text-align: center;
+
+    margin-bottom: 15px;
+
+}
+
+
+.split-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 12px 15px;
+
+    background: white;
+
+    margin-bottom: 6px;
+
+    border-radius: 6px;
+
+}
+
+
+.split-row strong {
+
+    font-weight: 700;
+
+}
+
+
+@media (max-width: 600px) {
+
+    #raceForm {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .field.full {
+
+        grid-column:
+            auto;
+
+    }
+
+    #raceForm button {
+
+        grid-column:
+            auto;
+
+    }
+
+    .result-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .main-result strong {
+
+        font-size: 48px;
+
+    }
+
+    .race-card {
+
+        padding: 25px;
+
+    }
+
+}
+
+</style>
+
+
+
+<script>
+
+const raceForm =
+    document.getElementById("raceForm");
+
+
+function formatTime(totalSeconds) {
+
+    totalSeconds =
+        Math.round(totalSeconds);
+
+
+    const hours =
+        Math.floor(
+            totalSeconds / 3600
+        );
+
+
+    const minutes =
+        Math.floor(
+            (totalSeconds % 3600) / 60
+        );
+
+
+    const seconds =
+        totalSeconds % 60;
+
+
+    if (hours > 0) {
+
+        return (
+            hours
+            + ":"
+            + String(minutes).padStart(2, "0")
+            + ":"
+            + String(seconds).padStart(2, "0")
+        );
+
+    }
+
+
+    return (
+        minutes
+        + ":"
+        + String(seconds).padStart(2, "0")
+    );
+
+}
+
+
+
+function formatPace(totalSeconds) {
+
+    const minutes =
+        Math.floor(
+            totalSeconds / 60
+        );
+
+
+    const seconds =
+        Math.round(
+            totalSeconds % 60
+        );
+
+
+    return (
+        minutes
+        + ":"
+        + String(seconds).padStart(2, "0")
+    );
+
+}
+
+
+
+raceForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const distance =
+            parseFloat(
+                document.getElementById(
+                    "distance"
+                ).value
+            );
+
+
+        const hours =
+            parseInt(
+                document.getElementById(
+                    "hours"
+                ).value || 0
+            );
+
+
+        const minutes =
+            parseInt(
+                document.getElementById(
+                    "minutes"
+                ).value || 0
+            );
+
+
+        const seconds =
+            parseInt(
+                document.getElementById(
+                    "seconds"
+                ).value || 0
+            );
+
+
+        const totalSeconds =
+            (
+                hours * 3600
+            )
+            +
+            (
+                minutes * 60
+            )
+            +
+            seconds;
+
+
+        if (
+            totalSeconds <= 0
+        ) {
+
+            alert(
+                "Please enter a valid target time."
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * Required pace
+         */
+
+        const paceSeconds =
+            totalSeconds /
+            distance;
+
+
+        /*
+         * Running speed
+         */
+
+        const speed =
+            distance /
+            (
+                totalSeconds / 3600
+            );
+
+
+        /*
+         * Mile pace
+         *
+         * 1 mile = 1.609344 km
+         */
+
+        const milePaceSeconds =
+            paceSeconds *
+            1.609344;
+
+
+        /*
+         * Display main results
+         */
+
+        document.getElementById(
+            "pace"
+        ).textContent =
+            formatPace(paceSeconds);
+
+
+        document.getElementById(
+            "speed"
+        ).textContent =
+            speed.toFixed(2);
+
+
+        document.getElementById(
+            "milePace"
+        ).textContent =
+            formatPace(
+                milePaceSeconds
+            );
+
+
+        document.getElementById(
+            "finishTime"
+        ).textContent =
+            formatTime(
+                totalSeconds
+            );
+
+
+        /*
+         * Race splits
+         */
+
+        const splitResults =
+            document.getElementById(
+                "splitResults"
+            );
+
+
+        splitResults.innerHTML =
+            "";
+
+
+        const splitDistances = [
+            1,
+            5,
+            10
+        ];
+
+
+        splitDistances.forEach(
+            function(splitDistance) {
+
+                if (
+                    splitDistance <
+                    distance
+                ) {
+
+                    const splitTime =
+                        paceSeconds *
+                        splitDistance;
+
+
+                    const row =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    row.className =
+                        "split-row";
+
+
+                    row.innerHTML =
+                        `
+                        <span>
+                            ${splitDistance} km
+                        </span>
+
+                        <strong>
+                            ${formatTime(splitTime)}
+                        </strong>
+                        `;
+
+
+                    splitResults.appendChild(
+                        row
+                    );
+
+                }
+
+            }
+        );
+
+
+        /*
+         * Half marathon split
+         */
+
+        if (
+            21.0975 <
+            distance
+        ) {
+
+            const halfTime =
+                paceSeconds *
+                21.0975;
+
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+
+            row.className =
+                "split-row";
+
+
+            row.innerHTML =
+                `
+                <span>
+                    Half Marathon
+                </span>
+
+                <strong>
+                    ${formatTime(halfTime)}
+                </strong>
+                `;
+
+
+            splitResults.appendChild(
+                row
+            );
+
+        }
+
+
+        /*
+         * Show results
+         */
+
+        document.getElementById(
+            "results"
+        ).style.display =
+            "block";
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>
