@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Protein Calculator | FitNS.Arc</title>
+
+    <meta name="description"
+        content="Calculate your estimated daily protein requirement based on your body weight, goal and training type with FitNS.Arc.">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h2>FitNS.Arc</h2>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="coaching.html">Coaching</a>
+
+        <a href="tools.html">Tools</a>
+
+        <a href="index.html#about">About</a>
+
+    </nav>
+
+    <a href="apply.html">
+        GET COACHED
+    </a>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section>
+
+    <p>FITNS.ARC / PROTEIN CALCULATOR</p>
+
+    <h1>
+        How Much<br>
+        Protein Do<br>
+        You Need?
+    </h1>
+
+    <p>
+        Estimate your daily protein requirement based on
+        your body weight, goal and training.
+    </p>
+
+</section>
+
+
+
+<!-- CALCULATOR -->
+
+<section>
+
+    <div class="protein-card">
+
+        <h2>Protein Calculator</h2>
+
+        <p>
+            Tell us about your body weight, goal and training.
+        </p>
+
+
+        <form id="proteinForm">
+
+
+            <!-- WEIGHT -->
+
+            <div class="field full">
+
+                <label for="weight">
+                    Body Weight (kg)
+                </label>
+
+                <input
+                    type="number"
+                    id="weight"
+                    min="30"
+                    max="300"
+                    step="0.1"
+                    placeholder="Example: 70"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- GOAL -->
+
+            <div class="field">
+
+                <label for="goal">
+                    Primary Goal
+                </label>
+
+                <select id="goal" required>
+
+                    <option value="">
+                        Select your goal
+                    </option>
+
+                    <option value="general">
+                        General Health
+                    </option>
+
+                    <option value="fatloss">
+                        Fat Loss
+                    </option>
+
+                    <option value="muscle">
+                        Muscle Gain / Hypertrophy
+                    </option>
+
+                    <option value="strength">
+                        Strength Training
+                    </option>
+
+                    <option value="endurance">
+                        Running / Endurance
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- TRAINING -->
+
+            <div class="field">
+
+                <label for="training">
+                    Training Frequency
+                </label>
+
+                <select id="training" required>
+
+                    <option value="">
+                        Select frequency
+                    </option>
+
+                    <option value="0">
+                        Little / No Training
+                    </option>
+
+                    <option value="2">
+                        1–2 days/week
+                    </option>
+
+                    <option value="4">
+                        3–4 days/week
+                    </option>
+
+                    <option value="6">
+                        5–6 days/week
+                    </option>
+
+                    <option value="7">
+                        Daily / High Training Load
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <button type="submit">
+
+                CALCULATE PROTEIN →
+
+            </button>
+
+
+        </form>
+
+
+
+        <!-- RESULTS -->
+
+        <div
+            id="proteinResults"
+            class="protein-results"
+        >
+
+            <p class="result-label">
+                YOUR ESTIMATED PROTEIN TARGET
+            </p>
+
+
+            <h2>
+
+                <span id="proteinMin">
+                    --
+                </span>
+
+                –
+
+                <span id="proteinMax">
+                    --
+                </span>
+
+                <small>
+                    g/day
+                </small>
+
+            </h2>
+
+
+            <p id="proteinPerKg">
+                --
+            </p>
+
+
+            <div class="protein-message">
+
+                <h3 id="proteinTitle">
+                    Your protein target
+                </h3>
+
+                <p id="proteinMessage">
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- WHY PROTEIN -->
+
+<section>
+
+    <p>
+        WHY PROTEIN MATTERS
+    </p>
+
+    <h2>
+        Protein is more than
+        just a muscle-building nutrient.
+    </h2>
+
+    <p>
+        Adequate protein supports muscle maintenance,
+        muscle growth, recovery and helps you feel
+        fuller during a calorie deficit.
+    </p>
+
+    <p>
+        Your ideal intake depends on your body weight,
+        training, goal and overall diet.
+    </p>
+
+</section>
+
+
+
+<!-- CTA -->
+
+<section>
+
+    <p>
+        TRYING TO HIT YOUR PROTEIN TARGET?
+    </p>
+
+    <h2>
+        We can help you build the whole plan.
+    </h2>
+
+    <p>
+        FitNS.Arc Fat Loss and Strength Coaching combines
+        nutrition and training around your individual goal.
+    </p>
+
+    <a href="apply.html">
+        GET COACHED →
+    </a>
+
+</section>
+
+
+
+<footer>
+
+    <h3>
+        FitNS.Arc
+    </h3>
+
+    <p>
+        Train. Fuel. Perform.
+    </p>
+
+    <p>
+        © 2026 FitNS.Arc. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<style>
+
+.protein-card {
+
+    max-width: 750px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.08);
+
+}
+
+
+#proteinForm {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 22px;
+
+    margin-top: 30px;
+
+}
+
+
+.field {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.field.full {
+
+    grid-column:
+        1 / -1;
+
+}
+
+
+.field label {
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+
+}
+
+
+.field input,
+.field select {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #d5d5d5;
+
+    border-radius: 7px;
+
+    background: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+}
+
+
+#proteinForm button {
+
+    grid-column:
+        1 / -1;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #111;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.protein-results {
+
+    display: none;
+
+    margin-top: 40px;
+
+    padding: 35px;
+
+    background: #f5f5f3;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+}
+
+
+.result-label {
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.protein-results h2 {
+
+    font-size: 55px;
+
+    margin: 10px 0;
+
+}
+
+
+.protein-results h2 small {
+
+    font-size: 18px;
+
+}
+
+
+#proteinPerKg {
+
+    color: #666;
+
+}
+
+
+.protein-message {
+
+    margin-top: 25px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #ddd;
+
+}
+
+
+.protein-message p {
+
+    color: #666;
+
+}
+
+
+@media (max-width: 600px) {
+
+    #proteinForm {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .field.full {
+
+        grid-column:
+            auto;
+
+    }
+
+    #proteinForm button {
+
+        grid-column:
+            auto;
+
+    }
+
+    .protein-card {
+
+        padding: 25px;
+
+    }
+
+    .protein-results h2 {
+
+        font-size: 42px;
+
+    }
+
+}
+
+</style>
+
+
+
+<script>
+
+const proteinForm =
+    document.getElementById("proteinForm");
+
+
+proteinForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const weight =
+            parseFloat(
+                document.getElementById("weight").value
+            );
+
+
+        const goal =
+            document.getElementById("goal").value;
+
+
+        const training =
+            parseInt(
+                document.getElementById("training").value
+            );
+
+
+        /*
+         * Protein recommendations
+         *
+         * Values are expressed as
+         * grams per kg body weight.
+         */
+
+        let minPerKg;
+
+        let maxPerKg;
+
+        let title;
+
+        let message;
+
+
+        if (goal === "fatloss") {
+
+            minPerKg = 1.6;
+
+            maxPerKg = 2.2;
+
+            title =
+                "Fat Loss Protein Target";
+
+            message =
+                "Higher protein intake can help support muscle retention and satiety during a calorie deficit.";
+
+        }
+
+        else if (goal === "muscle") {
+
+            minPerKg = 1.6;
+
+            maxPerKg = 2.2;
+
+            title =
+                "Muscle Gain Protein Target";
+
+            message =
+                "This range supports muscle growth when combined with appropriate resistance training and sufficient overall nutrition.";
+
+        }
+
+        else if (goal === "strength") {
+
+            minPerKg = 1.6;
+
+            maxPerKg = 2.2;
+
+            title =
+                "Strength Training Protein Target";
+
+            message =
+                "Adequate protein supports recovery and muscle maintenance while you progressively overload your training.";
+
+        }
+
+        else if (goal === "endurance") {
+
+            minPerKg = 1.4;
+
+            maxPerKg = 1.8;
+
+            title =
+                "Endurance Protein Target";
+
+            message =
+                "Protein supports recovery and muscle maintenance alongside adequate carbohydrate and overall energy intake.";
+
+        }
+
+        else {
+
+            minPerKg = 1.2;
+
+            maxPerKg = 1.6;
+
+            title =
+                "General Protein Target";
+
+            message =
+                "This range provides a practical starting point for generally active adults.";
+
+        }
+
+
+        /*
+         * Training frequency adjustment
+         *
+         * High training load moves the
+         * recommendation toward the upper end.
+         */
+
+        if (
+            training >= 6 &&
+            goal !== "general"
+        ) {
+
+            minPerKg += 0.1;
+
+            maxPerKg += 0.1;
+
+        }
+
+
+        const minProtein =
+            Math.round(
+                weight * minPerKg
+            );
+
+
+        const maxProtein =
+            Math.round(
+                weight * maxPerKg
+            );
+
+
+        document.getElementById(
+            "proteinMin"
+        ).textContent =
+            minProtein;
+
+
+        document.getElementById(
+            "proteinMax"
+        ).textContent =
+            maxProtein;
+
+
+        document.getElementById(
+            "proteinPerKg"
+        ).textContent =
+            minPerKg.toFixed(1)
+            + "–"
+            + maxPerKg.toFixed(1)
+            + " g/kg body weight";
+
+
+        document.getElementById(
+            "proteinTitle"
+        ).textContent =
+            title;
+
+
+        document.getElementById(
+            "proteinMessage"
+        ).textContent =
+            message;
+
+
+        document.getElementById(
+            "proteinResults"
+        ).style.display =
+            "block";
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>
