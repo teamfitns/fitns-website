@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Calorie Calculator | FitNS.Arc</title>
+
+    <meta name="description"
+        content="Calculate estimated BMR, maintenance calories and fat-loss calorie targets with the FitNS.Arc calorie calculator.">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h2>FitNS.Arc</h2>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="coaching.html">Coaching</a>
+
+        <a href="tools.html">Tools</a>
+
+        <a href="index.html#about">About</a>
+
+    </nav>
+
+    <a href="apply.html">
+        GET COACHED
+    </a>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section>
+
+    <p>FITNS.ARC / CALORIE CALCULATOR</p>
+
+    <h1>
+        Know Your<br>
+        Energy Needs.
+    </h1>
+
+    <p>
+        Estimate your daily energy requirements and
+        understand where a sustainable calorie deficit
+        could fit into your fat-loss journey.
+    </p>
+
+</section>
+
+
+
+<!-- CALCULATOR -->
+
+<section>
+
+    <div class="calorie-card">
+
+        <h2>Calorie Calculator</h2>
+
+        <p>
+            Enter your details and select your usual
+            activity level.
+        </p>
+
+
+        <form id="calorieForm">
+
+
+            <div class="field">
+
+                <label for="age">
+                    Age
+                </label>
+
+                <input
+                    type="number"
+                    id="age"
+                    min="18"
+                    max="100"
+                    placeholder="Example: 29"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="field">
+
+                <label for="sex">
+                    Sex
+                </label>
+
+                <select id="sex" required>
+
+                    <option value="">
+                        Select
+                    </option>
+
+                    <option value="male">
+                        Male
+                    </option>
+
+                    <option value="female">
+                        Female
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="field">
+
+                <label for="height">
+                    Height (cm)
+                </label>
+
+                <input
+                    type="number"
+                    id="height"
+                    min="100"
+                    max="250"
+                    step="0.1"
+                    placeholder="Example: 174"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="field">
+
+                <label for="weight">
+                    Weight (kg)
+                </label>
+
+                <input
+                    type="number"
+                    id="weight"
+                    min="30"
+                    max="300"
+                    step="0.1"
+                    placeholder="Example: 70"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="field full">
+
+                <label for="activity">
+                    Activity Level
+                </label>
+
+                <select id="activity" required>
+
+                    <option value="">
+                        Select your activity level
+                    </option>
+
+                    <option value="1.2">
+                        Sedentary — little or no exercise
+                    </option>
+
+                    <option value="1.375">
+                        Lightly Active — exercise 1–3 days/week
+                    </option>
+
+                    <option value="1.55">
+                        Moderately Active — exercise 3–5 days/week
+                    </option>
+
+                    <option value="1.725">
+                        Very Active — hard exercise 6–7 days/week
+                    </option>
+
+                    <option value="1.9">
+                        Extremely Active — very hard training / physical job
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="field full">
+
+                <label for="goal">
+                    Goal
+                </label>
+
+                <select id="goal" required>
+
+                    <option value="">
+                        Select your goal
+                    </option>
+
+                    <option value="maintain">
+                        Maintain Weight
+                    </option>
+
+                    <option value="fatloss">
+                        Fat Loss
+                    </option>
+
+                    <option value="gain">
+                        Weight Gain
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <button type="submit">
+                CALCULATE MY CALORIES →
+            </button>
+
+
+        </form>
+
+
+
+        <!-- RESULTS -->
+
+        <div
+            id="results"
+            class="calorie-results"
+        >
+
+            <p class="result-label">
+                YOUR ESTIMATES
+            </p>
+
+
+            <div class="result-grid">
+
+                <div>
+
+                    <span>
+                        BMR
+                    </span>
+
+                    <strong id="bmr">
+                        --
+                    </strong>
+
+                    <small>
+                        kcal/day
+                    </small>
+
+                </div>
+
+
+
+                <div>
+
+                    <span>
+                        MAINTENANCE
+                    </span>
+
+                    <strong id="tdee">
+                        --
+                    </strong>
+
+                    <small>
+                        kcal/day
+                    </small>
+
+                </div>
+
+
+
+                <div>
+
+                    <span id="goalLabel">
+                        TARGET
+                    </span>
+
+                    <strong id="targetCalories">
+                        --
+                    </strong>
+
+                    <small>
+                        kcal/day
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="calorie-explanation">
+
+                <h3 id="resultTitle">
+                    Your estimated target
+                </h3>
+
+                <p id="resultMessage">
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- EXPLANATION -->
+
+<section>
+
+    <p>
+        UNDERSTANDING YOUR NUMBERS
+    </p>
+
+    <h2>
+        Calories are an estimate,
+        not a prescription.
+    </h2>
+
+    <p>
+        Your actual energy requirements can vary based on
+        body composition, daily movement, training load,
+        sleep and many other factors.
+    </p>
+
+    <p>
+        Use these numbers as a starting point and adjust
+        based on real-world progress over time.
+    </p>
+
+</section>
+
+
+
+<!-- CTA -->
+
+<section>
+
+    <p>
+        WANT A PLAN BUILT AROUND YOU?
+    </p>
+
+    <h2>
+        Numbers are easy.<br>
+        Knowing what to do with them is harder.
+    </h2>
+
+    <p>
+        FitNS.Arc Fat Loss Coaching combines nutrition,
+        training and accountability around your individual goal.
+    </p>
+
+    <a href="fat-loss.html">
+        EXPLORE FAT LOSS COACHING →
+    </a>
+
+</section>
+
+
+
+<footer>
+
+    <h3>
+        FitNS.Arc
+    </h3>
+
+    <p>
+        Train. Fuel. Perform.
+    </p>
+
+    <p>
+        © 2026 FitNS.Arc. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<style>
+
+.calorie-card {
+
+    max-width: 750px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.08);
+
+}
+
+
+#calorieForm {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 22px;
+
+    margin-top: 30px;
+
+}
+
+
+.field {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.field.full {
+
+    grid-column:
+        1 / -1;
+
+}
+
+
+.field label {
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+
+}
+
+
+.field input,
+.field select {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #d5d5d5;
+
+    border-radius: 7px;
+
+    background: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+}
+
+
+#calorieForm button {
+
+    grid-column:
+        1 / -1;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #111;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.calorie-results {
+
+    display: none;
+
+    margin-top: 40px;
+
+    padding: 30px;
+
+    background: #f5f5f3;
+
+    border-radius: 10px;
+
+}
+
+
+.result-label {
+
+    text-align: center;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.result-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+}
+
+
+.result-grid div {
+
+    background: white;
+
+    padding: 22px;
+
+    text-align: center;
+
+    border-radius: 8px;
+
+}
+
+
+.result-grid span {
+
+    display: block;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #666;
+
+}
+
+
+.result-grid strong {
+
+    display: block;
+
+    font-size: 30px;
+
+    margin: 5px 0;
+
+}
+
+
+.result-grid small {
+
+    color: #777;
+
+}
+
+
+.calorie-explanation {
+
+    margin-top: 25px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #ddd;
+
+    text-align: center;
+
+}
+
+
+.calorie-explanation p {
+
+    color: #666;
+
+}
+
+
+@media (max-width: 600px) {
+
+    #calorieForm {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .field.full {
+
+        grid-column:
+            auto;
+
+    }
+
+    #calorieForm button {
+
+        grid-column:
+            auto;
+
+    }
+
+    .result-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .calorie-card {
+
+        padding: 25px;
+
+    }
+
+}
+
+</style>
+
+
+
+<script>
+
+const calorieForm =
+    document.getElementById("calorieForm");
+
+
+calorieForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const age =
+            parseFloat(
+                document.getElementById("age").value
+            );
+
+
+        const sex =
+            document.getElementById("sex").value;
+
+
+        const height =
+            parseFloat(
+                document.getElementById("height").value
+            );
+
+
+        const weight =
+            parseFloat(
+                document.getElementById("weight").value
+            );
+
+
+        const activity =
+            parseFloat(
+                document.getElementById("activity").value
+            );
+
+
+        const goal =
+            document.getElementById("goal").value;
+
+
+        /*
+         * Mifflin-St Jeor BMR
+         */
+
+        let bmr;
+
+
+        if (sex === "male") {
+
+            bmr =
+                (10 * weight)
+                +
+                (6.25 * height)
+                -
+                (5 * age)
+                +
+                5;
+
+        } else {
+
+            bmr =
+                (10 * weight)
+                +
+                (6.25 * height)
+                -
+                (5 * age)
+                -
+                161;
+
+        }
+
+
+        /*
+         * Estimated TDEE
+         */
+
+        const tdee =
+            bmr * activity;
+
+
+        /*
+         * Goal adjustment
+         *
+         * Fat loss:
+         * ~15% deficit
+         *
+         * Weight gain:
+         * ~10% surplus
+         */
+
+        let target;
+
+        let title;
+
+        let message;
+
+
+        if (goal === "fatloss") {
+
+            target =
+                tdee * 0.85;
+
+            title =
+                "Estimated Fat-Loss Target";
+
+            message =
+                "This estimate uses approximately a 15% calorie deficit from your estimated maintenance level. Actual needs vary, so monitor your progress and adjust over time.";
+
+        }
+
+        else if (goal === "gain") {
+
+            target =
+                tdee * 1.10;
+
+            title =
+                "Estimated Weight-Gain Target";
+
+            message =
+                "This estimate uses approximately a 10% calorie surplus. Your actual requirements may vary based on your training and rate of weight change.";
+
+        }
+
+        else {
+
+            target =
+                tdee;
+
+            title =
+                "Estimated Maintenance";
+
+            message =
+                "This is an estimate of the calories you may need to maintain your current body weight at your selected activity level.";
+
+        }
+
+
+        /*
+         * Display results
+         */
+
+        document.getElementById("bmr")
+            .textContent =
+            Math.round(bmr);
+
+
+        document.getElementById("tdee")
+            .textContent =
+            Math.round(tdee);
+
+
+        document.getElementById("targetCalories")
+            .textContent =
+            Math.round(target);
+
+
+        document.getElementById("resultTitle")
+            .textContent =
+            title;
+
+
+        document.getElementById("resultMessage")
+            .textContent =
+            message;
+
+
+        document.getElementById("results")
+            .style.display =
+            "block";
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>
