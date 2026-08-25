@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>1RM Calculator | FitNS.Arc</title>
+
+    <meta name="description"
+        content="Estimate your one-rep max and training weights with the FitNS.Arc 1RM calculator.">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h2>FitNS.Arc</h2>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="coaching.html">Coaching</a>
+
+        <a href="tools.html">Tools</a>
+
+        <a href="index.html#about">About</a>
+
+    </nav>
+
+    <a href="apply.html">
+        GET COACHED
+    </a>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section>
+
+    <p>FITNS.ARC / STRENGTH CALCULATOR</p>
+
+    <h1>
+        Know Your<br>
+        Strength.
+    </h1>
+
+    <p>
+        Estimate your one-rep max and calculate useful
+        training weights from a submaximal set.
+    </p>
+
+</section>
+
+
+
+<!-- CALCULATOR -->
+
+<section>
+
+    <div class="one-rm-card">
+
+        <h2>1RM Calculator</h2>
+
+        <p>
+            Enter the weight you lifted and the number
+            of clean repetitions you completed.
+        </p>
+
+
+        <form id="oneRmForm">
+
+
+            <div class="field">
+
+                <label for="weight">
+                    Weight Lifted (kg)
+                </label>
+
+                <input
+                    type="number"
+                    id="weight"
+                    min="1"
+                    max="1000"
+                    step="0.5"
+                    placeholder="Example: 60"
+                    required
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label for="reps">
+                    Repetitions
+                </label>
+
+                <input
+                    type="number"
+                    id="reps"
+                    min="1"
+                    max="15"
+                    placeholder="Example: 8"
+                    required
+                >
+
+            </div>
+
+
+            <button type="submit">
+                CALCULATE 1RM →
+            </button>
+
+        </form>
+
+
+
+        <!-- RESULTS -->
+
+        <div
+            id="results"
+            class="one-rm-results"
+        >
+
+            <p class="result-label">
+                ESTIMATED ONE-REP MAX
+            </p>
+
+
+            <h2 id="oneRm">
+                --
+            </h2>
+
+            <p>
+                Estimated using the Epley formula
+            </p>
+
+
+            <div class="formula-comparison">
+
+                <div>
+
+                    <span>
+                        EPLEY
+                    </span>
+
+                    <strong id="epley">
+                        --
+                    </strong>
+
+                    <small>
+                        kg
+                    </small>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        BRZYCKI
+                    </span>
+
+                    <strong id="brzycki">
+                        --
+                    </strong>
+
+                    <small>
+                        kg
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TRAINING TABLE -->
+
+            <div class="training-table">
+
+                <h3>
+                    Suggested Training Weights
+                </h3>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                % 1RM
+                            </th>
+
+                            <th>
+                                Weight
+                            </th>
+
+                            <th>
+                                Typical Use
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>60%</td>
+
+                            <td id="p60">--</td>
+
+                            <td>Technique / Volume</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>70%</td>
+
+                            <td id="p70">--</td>
+
+                            <td>Volume</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>75%</td>
+
+                            <td id="p75">--</td>
+
+                            <td>Hypertrophy</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>80%</td>
+
+                            <td id="p80">--</td>
+
+                            <td>Strength / Hypertrophy</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>85%</td>
+
+                            <td id="p85">--</td>
+
+                            <td>Strength</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>90%</td>
+
+                            <td id="p90">--</td>
+
+                            <td>Heavy Strength</td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>95%</td>
+
+                            <td id="p95">--</td>
+
+                            <td>Near-Max Effort</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <p class="rounding-note">
+                Training weights are rounded to the nearest
+                0.5 kg for practical use.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- EXPLANATION -->
+
+<section>
+
+    <p>
+        UNDERSTANDING 1RM
+    </p>
+
+    <h2>
+        You don't need to test
+        your true maximum.
+    </h2>
+
+    <p>
+        An estimated 1RM allows you to use a submaximal
+        set to estimate your maximum strength.
+    </p>
+
+    <p>
+        Your actual performance can vary with fatigue,
+        technique, training experience and exercise selection.
+    </p>
+
+</section>
+
+
+
+<!-- CTA -->
+
+<section>
+
+    <p>
+        WANT TO GET STRONGER?
+    </p>
+
+    <h2>
+        Numbers are the starting point.
+    </h2>
+
+    <p>
+        FitNS.Arc Strength Coaching uses progressive,
+        structured training to help you build strength
+        around your individual goals.
+    </p>
+
+    <a href="strength.html">
+        EXPLORE STRENGTH COACHING →
+    </a>
+
+</section>
+
+
+
+<footer>
+
+    <h3>
+        FitNS.Arc
+    </h3>
+
+    <p>
+        Train. Fuel. Perform.
+    </p>
+
+    <p>
+        © 2026 FitNS.Arc. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<style>
+
+.one-rm-card {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.08);
+
+}
+
+
+#oneRmForm {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 22px;
+
+    margin-top: 30px;
+
+}
+
+
+.field {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.field label {
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+
+}
+
+
+.field input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #d5d5d5;
+
+    border-radius: 7px;
+
+    background: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+}
+
+
+#oneRmForm button {
+
+    grid-column:
+        1 / -1;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #111;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.one-rm-results {
+
+    display: none;
+
+    margin-top: 40px;
+
+    padding: 35px;
+
+    background: #f5f5f3;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+}
+
+
+.result-label {
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+#oneRm {
+
+    font-size: 64px;
+
+    margin: 8px 0;
+
+}
+
+
+.formula-comparison {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+}
+
+
+.formula-comparison div {
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 8px;
+
+}
+
+
+.formula-comparison span {
+
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #666;
+
+}
+
+
+.formula-comparison strong {
+
+    display: block;
+
+    font-size: 28px;
+
+    margin: 5px 0;
+
+}
+
+
+.formula-comparison small {
+
+    color: #777;
+
+}
+
+
+.training-table {
+
+    margin-top: 35px;
+
+    text-align: left;
+
+}
+
+
+.training-table h3 {
+
+    text-align: center;
+
+    margin-bottom: 18px;
+
+}
+
+
+.training-table table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+}
+
+
+.training-table th,
+.training-table td {
+
+    padding: 13px 15px;
+
+    border-bottom: 1px solid #eee;
+
+}
+
+
+.training-table th {
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    background: #111;
+
+    color: white;
+
+}
+
+
+.training-table td:nth-child(2) {
+
+    font-weight: 700;
+
+}
+
+
+.rounding-note {
+
+    margin-top: 15px;
+
+    font-size: 13px;
+
+    color: #777;
+
+}
+
+
+@media (max-width: 600px) {
+
+    #oneRmForm {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    #oneRmForm button {
+
+        grid-column:
+            auto;
+
+    }
+
+    .formula-comparison {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .one-rm-card {
+
+        padding: 25px;
+
+    }
+
+    #oneRm {
+
+        font-size: 50px;
+
+    }
+
+    .training-table {
+
+        overflow-x: auto;
+
+    }
+
+    .training-table table {
+
+        min-width: 600px;
+
+    }
+
+}
+
+</style>
+
+
+
+<script>
+
+const oneRmForm =
+    document.getElementById("oneRmForm");
+
+
+function roundWeight(weight) {
+
+    return (
+        Math.round(
+            weight * 2
+        ) / 2
+    ).toFixed(1);
+
+}
+
+
+function calculateBrzycki(
+    weight,
+    reps
+) {
+
+    /*
+     * Brzycki formula:
+     *
+     * 1RM = weight × 36 / (37 - reps)
+     *
+     * Most reliable for submaximal
+     * sets rather than very high reps.
+     */
+
+    if (reps >= 37) {
+
+        return weight;
+
+    }
+
+    return (
+        weight *
+        36 /
+        (37 - reps)
+    );
+
+}
+
+
+oneRmForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const weight =
+            parseFloat(
+                document.getElementById(
+                    "weight"
+                ).value
+            );
+
+
+        const reps =
+            parseInt(
+                document.getElementById(
+                    "reps"
+                ).value
+            );
+
+
+        if (
+            weight <= 0 ||
+            reps < 1 ||
+            reps > 15
+        ) {
+
+            alert(
+                "Please enter a valid weight and 1–15 repetitions."
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * Epley:
+         *
+         * 1RM = weight × (1 + reps / 30)
+         */
+
+        const epley =
+            weight *
+            (
+                1 +
+                reps / 30
+            );
+
+
+        /*
+         * Brzycki
+         */
+
+        const brzycki =
+            calculateBrzycki(
+                weight,
+                reps
+            );
+
+
+        /*
+         * Use Epley as the primary
+         * displayed estimate.
+         */
+
+        const estimated1RM =
+            epley;
+
+
+        /*
+         * Display formulas
+         */
+
+        document.getElementById(
+            "oneRm"
+        ).textContent =
+            roundWeight(
+                estimated1RM
+            )
+            + " kg";
+
+
+        document.getElementById(
+            "epley"
+        ).textContent =
+            roundWeight(epley);
+
+
+        document.getElementById(
+            "brzycki"
+        ).textContent =
+            roundWeight(brzycki);
+
+
+        /*
+         * Training percentages
+         */
+
+        const percentages = [
+            60,
+            70,
+            75,
+            80,
+            85,
+            90,
+            95
+        ];
+
+
+        percentages.forEach(
+            function(percent) {
+
+                const trainingWeight =
+                    estimated1RM *
+                    percent /
+                    100;
+
+
+                document.getElementById(
+                    "p" + percent
+                ).textContent =
+                    roundWeight(
+                        trainingWeight
+                    )
+                    + " kg";
+
+            }
+        );
+
+
+        /*
+         * Show results
+         */
+
+        document.getElementById(
+            "results"
+        ).style.display =
+            "block";
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>
