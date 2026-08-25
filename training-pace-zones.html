@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Training Pace Zones | FitNS.Arc</title>
+
+    <meta name="description"
+        content="Calculate estimated running training pace zones from a recent race performance with the FitNS.Arc Training Pace Zones calculator.">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h2>FitNS.Arc</h2>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="coaching.html">Coaching</a>
+
+        <a href="tools.html">Tools</a>
+
+        <a href="index.html#about">About</a>
+
+    </nav>
+
+    <a href="apply.html">
+        GET COACHED
+    </a>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section>
+
+    <p>FITNS.ARC / RUNNING CALCULATOR</p>
+
+    <h1>
+        Find Your<br>
+        Training Paces.
+    </h1>
+
+    <p>
+        Use a recent race performance to estimate practical
+        training pace zones for your running.
+    </p>
+
+</section>
+
+
+
+<!-- CALCULATOR -->
+
+<section>
+
+    <div class="zones-card">
+
+        <h2>Training Pace Zones</h2>
+
+        <p>
+            Enter your most recent race or time trial.
+            A recent 5K is ideal for this calculator.
+        </p>
+
+
+        <form id="zonesForm">
+
+
+            <div class="field full">
+
+                <label for="distance">
+                    Recent Performance
+                </label>
+
+                <select id="distance" required>
+
+                    <option value="5">
+                        5K
+                    </option>
+
+                    <option value="10">
+                        10K
+                    </option>
+
+                    <option value="21.0975">
+                        Half Marathon
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="field">
+
+                <label for="hours">
+                    Hours
+                </label>
+
+                <input
+                    type="number"
+                    id="hours"
+                    min="0"
+                    max="99"
+                    value="0"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="field">
+
+                <label for="minutes">
+                    Minutes
+                </label>
+
+                <input
+                    type="number"
+                    id="minutes"
+                    min="0"
+                    max="59"
+                    value="30"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="field full">
+
+                <label for="seconds">
+                    Seconds
+                </label>
+
+                <input
+                    type="number"
+                    id="seconds"
+                    min="0"
+                    max="59"
+                    value="0"
+                    required
+                >
+
+            </div>
+
+
+
+            <button type="submit">
+                CALCULATE TRAINING PACES →
+            </button>
+
+
+        </form>
+
+
+
+        <!-- RESULTS -->
+
+        <div
+            id="results"
+            class="zone-results"
+        >
+
+            <p class="result-label">
+                YOUR ESTIMATED TRAINING ZONES
+            </p>
+
+
+            <div class="pace-reference">
+
+                <span>
+                    RECENT RACE PACE
+                </span>
+
+                <strong id="racePace">
+                    --
+                </strong>
+
+                <small>
+                    min/km
+                </small>
+
+            </div>
+
+
+
+            <div class="zone-table">
+
+
+                <div class="zone-row">
+
+                    <div>
+
+                        <strong>
+                            Recovery / Easy
+                        </strong>
+
+                        <small>
+                            Comfortable aerobic running
+                        </small>
+
+                    </div>
+
+                    <strong id="easy">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <div class="zone-row">
+
+                    <div>
+
+                        <strong>
+                            Long Run
+                        </strong>
+
+                        <small>
+                            Sustainable endurance pace
+                        </small>
+
+                    </div>
+
+                    <strong id="longRun">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <div class="zone-row">
+
+                    <div>
+
+                        <strong>
+                            Tempo
+                        </strong>
+
+                        <small>
+                            Controlled sustained effort
+                        </small>
+
+                    </div>
+
+                    <strong id="tempo">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <div class="zone-row">
+
+                    <div>
+
+                        <strong>
+                            Threshold
+                        </strong>
+
+                        <small>
+                            Hard but controlled effort
+                        </small>
+
+                    </div>
+
+                    <strong id="threshold">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <div class="zone-row">
+
+                    <div>
+
+                        <strong>
+                            Interval
+                        </strong>
+
+                        <small>
+                            High-intensity running
+                        </small>
+
+                    </div>
+
+                    <strong id="interval">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <div class="zone-row">
+
+                    <div>
+
+                        <strong>
+                            Repetition
+                        </strong>
+
+                        <small>
+                            Short, fast repetitions
+                        </small>
+
+                    </div>
+
+                    <strong id="repetition">
+                        --
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <p class="zone-note">
+
+                These are estimated training ranges.
+                Weather, terrain, fatigue and individual
+                physiology can significantly affect appropriate
+                training pace.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- EXPLANATION -->
+
+<section>
+
+    <p>
+        TRAIN WITH PURPOSE
+    </p>
+
+    <h2>
+        Not every run should
+        feel hard.
+    </h2>
+
+    <p>
+        Different training intensities create different
+        adaptations. Easy running develops aerobic capacity
+        and allows recovery, while faster sessions target
+        speed, threshold and running economy.
+    </p>
+
+    <p>
+        Training pace should also be adjusted according to
+        how you actually feel on the day.
+    </p>
+
+</section>
+
+
+
+<!-- CTA -->
+
+<section>
+
+    <p>
+        WANT A PERSONALIZED RUNNING PLAN?
+    </p>
+
+    <h2>
+        Your pace is only
+        the starting point.
+    </h2>
+
+    <p>
+        FitNS.Arc Running & Marathon Coaching builds
+        structured training around your race goal,
+        current fitness and schedule.
+    </p>
+
+    <a href="running.html">
+        EXPLORE RUNNING COACHING →
+    </a>
+
+</section>
+
+
+
+<footer>
+
+    <h3>
+        FitNS.Arc
+    </h3>
+
+    <p>
+        Train. Fuel. Perform.
+    </p>
+
+    <p>
+        © 2026 FitNS.Arc. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<style>
+
+/* =========================
+   CARD
+========================= */
+
+.zones-card {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.08);
+
+}
+
+
+
+/* =========================
+   FORM
+========================= */
+
+#zonesForm {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 22px;
+
+    margin-top: 30px;
+
+}
+
+
+.field {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.field.full {
+
+    grid-column:
+        1 / -1;
+
+}
+
+
+.field label {
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+
+}
+
+
+.field input,
+.field select {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #d5d5d5;
+
+    border-radius: 7px;
+
+    background: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+}
+
+
+#zonesForm button {
+
+    grid-column:
+        1 / -1;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #111;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+
+/* =========================
+   RESULTS
+========================= */
+
+.zone-results {
+
+    display: none;
+
+    margin-top: 40px;
+
+    padding: 35px;
+
+    background: #f5f5f3;
+
+    border-radius: 10px;
+
+}
+
+
+.result-label {
+
+    text-align: center;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.pace-reference {
+
+    margin-top: 20px;
+
+    padding: 22px;
+
+    background: white;
+
+    border-radius: 9px;
+
+    text-align: center;
+
+}
+
+
+.pace-reference span {
+
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #666;
+
+}
+
+
+.pace-reference strong {
+
+    display: inline-block;
+
+    font-size: 40px;
+
+    margin-top: 5px;
+
+}
+
+
+.pace-reference small {
+
+    color: #777;
+
+}
+
+
+
+/* =========================
+   ZONE TABLE
+========================= */
+
+.zone-table {
+
+    margin-top: 20px;
+
+}
+
+
+.zone-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    background: white;
+
+    padding: 18px 20px;
+
+    margin-bottom: 8px;
+
+    border-radius: 8px;
+
+}
+
+
+.zone-row div {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.zone-row div strong {
+
+    font-size: 15px;
+
+}
+
+
+.zone-row div small {
+
+    margin-top: 4px;
+
+    color: #777;
+
+}
+
+
+.zone-row > strong {
+
+    font-size: 18px;
+
+    white-space: nowrap;
+
+}
+
+
+.zone-note {
+
+    margin-top: 20px;
+
+    font-size: 13px;
+
+    color: #777;
+
+    text-align: center;
+
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    .zones-card {
+
+        padding: 25px;
+
+    }
+
+
+    #zonesForm {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .field.full {
+
+        grid-column:
+            auto;
+
+    }
+
+
+    #zonesForm button {
+
+        grid-column:
+            auto;
+
+    }
+
+
+    .zone-row {
+
+        align-items: flex-start;
+
+    }
+
+}
+
+</style>
+
+
+
+<script>
+
+/* ==================================
+   ELEMENTS
+================================== */
+
+const zonesForm =
+    document.getElementById(
+        "zonesForm"
+    );
+
+
+
+/* ==================================
+   FORMAT PACE
+================================== */
+
+function formatPace(
+    seconds
+) {
+
+    seconds =
+        Math.max(
+            0,
+            seconds
+        );
+
+
+    const minutes =
+        Math.floor(
+            seconds / 60
+        );
+
+
+    const remaining =
+        Math.round(
+            seconds % 60
+        );
+
+
+    /*
+     * If rounding produces 60 seconds,
+     * carry it into the minute.
+     */
+
+    if (
+        remaining === 60
+    ) {
+
+        return (
+            minutes + 1
+            + ":00"
+        );
+
+    }
+
+
+    return (
+        minutes
+        + ":"
+        + String(
+            remaining
+        ).padStart(2, "0")
+    );
+
+}
+
+
+
+/* ==================================
+   FORM
+================================== */
+
+zonesForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const distance =
+            parseFloat(
+                document.getElementById(
+                    "distance"
+                ).value
+            );
+
+
+        const hours =
+            parseInt(
+                document.getElementById(
+                    "hours"
+                ).value || 0
+            );
+
+
+        const minutes =
+            parseInt(
+                document.getElementById(
+                    "minutes"
+                ).value || 0
+            );
+
+
+        const seconds =
+            parseInt(
+                document.getElementById(
+                    "seconds"
+                ).value || 0
+            );
+
+
+        const totalSeconds =
+            (
+                hours * 3600
+            )
+            +
+            (
+                minutes * 60
+            )
+            +
+            seconds;
+
+
+        if (
+            totalSeconds <= 0
+        ) {
+
+            alert(
+                "Please enter a valid race time."
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * Recent race pace
+         */
+
+        const racePace =
+            totalSeconds /
+            distance;
+
+
+        /*
+         * Training zones
+         *
+         * These use race pace as a
+         * practical starting point.
+         *
+         * Slower = larger seconds/km.
+         * Faster = smaller seconds/km.
+         */
+
+        const easyMin =
+            racePace * 1.18;
+
+
+        const easyMax =
+            racePace * 1.30;
+
+
+        const longMin =
+            racePace * 1.12;
+
+
+        const longMax =
+            racePace * 1.20;
+
+
+        const tempoMin =
+            racePace * 1.06;
+
+
+        const tempoMax =
+            racePace * 1.10;
+
+
+        const thresholdMin =
+            racePace * 1.03;
+
+
+        const thresholdMax =
+            racePace * 1.06;
+
+
+        const intervalMin =
+            racePace * 0.94;
+
+
+        const intervalMax =
+            racePace * 0.99;
+
+
+        const repetitionMin =
+            racePace * 0.88;
+
+
+        const repetitionMax =
+            racePace * 0.94;
+
+
+
+        /*
+         * Display
+         */
+
+        document.getElementById(
+            "racePace"
+        ).textContent =
+            formatPace(
+                racePace
+            );
+
+
+        document.getElementById(
+            "easy"
+        ).textContent =
+            formatPace(
+                easyMin
+            )
+            +
+            " – "
+            +
+            formatPace(
+                easyMax
+            );
+
+
+        document.getElementById(
+            "longRun"
+        ).textContent =
+            formatPace(
+                longMin
+            )
+            +
+            " – "
+            +
+            formatPace(
+                longMax
+            );
+
+
+        document.getElementById(
+            "tempo"
+        ).textContent =
+            formatPace(
+                tempoMin
+            )
+            +
+            " – "
+            +
+            formatPace(
+                tempoMax
+            );
+
+
+        document.getElementById(
+            "threshold"
+        ).textContent =
+            formatPace(
+                thresholdMin
+            )
+            +
+            " – "
+            +
+            formatPace(
+                thresholdMax
+            );
+
+
+        document.getElementById(
+            "interval"
+        ).textContent =
+            formatPace(
+                intervalMin
+            )
+            +
+            " – "
+            +
+            formatPace(
+                intervalMax
+            );
+
+
+        document.getElementById(
+            "repetition"
+        ).textContent =
+            formatPace(
+                repetitionMin
+            )
+            +
+            " – "
+            +
+            formatPace(
+                repetitionMax
+            );
+
+
+        /*
+         * Show results
+         */
+
+        document.getElementById(
+            "results"
+        ).style.display =
+            "block";
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>
