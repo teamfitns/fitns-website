@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Strength Progress Calculator | FitNS.Arc</title>
+
+    <meta name="description"
+        content="Track your strength progress and calculate percentage improvements in your lifts with FitNS.Arc.">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h2>FitNS.Arc</h2>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="coaching.html">Coaching</a>
+
+        <a href="tools.html">Tools</a>
+
+        <a href="index.html#about">About</a>
+
+    </nav>
+
+    <a href="apply.html">
+        GET COACHED
+    </a>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section>
+
+    <p>FITNS.ARC / STRENGTH PROGRESS</p>
+
+    <h1>
+        See How Much<br>
+        You've Improved.
+    </h1>
+
+    <p>
+        Compare your previous and current performance
+        and see your strength progression in numbers.
+    </p>
+
+</section>
+
+
+
+<!-- CALCULATOR -->
+
+<section>
+
+    <div class="progress-card">
+
+        <h2>Strength Progress Calculator</h2>
+
+        <p>
+            Enter your previous and current performance.
+        </p>
+
+
+        <form id="progressForm">
+
+
+            <!-- EXERCISE -->
+
+            <div class="field full">
+
+                <label for="exercise">
+                    Exercise
+                </label>
+
+                <input
+                    type="text"
+                    id="exercise"
+                    placeholder="Example: Bench Press"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- PREVIOUS -->
+
+            <div class="period-box">
+
+                <h3>
+                    Previous Performance
+                </h3>
+
+
+                <div class="field">
+
+                    <label for="oldWeight">
+                        Weight (kg)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="oldWeight"
+                        min="0"
+                        step="0.5"
+                        placeholder="Example: 50"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="oldReps">
+                        Reps
+                    </label>
+
+                    <input
+                        type="number"
+                        id="oldReps"
+                        min="1"
+                        max="100"
+                        placeholder="Example: 8"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CURRENT -->
+
+            <div class="period-box">
+
+                <h3>
+                    Current Performance
+                </h3>
+
+
+                <div class="field">
+
+                    <label for="newWeight">
+                        Weight (kg)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="newWeight"
+                        min="0"
+                        step="0.5"
+                        placeholder="Example: 60"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="newReps">
+                        Reps
+                    </label>
+
+                    <input
+                        type="number"
+                        id="newReps"
+                        min="1"
+                        max="100"
+                        placeholder="Example: 8"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <button type="submit">
+
+                CALCULATE MY PROGRESS →
+
+            </button>
+
+
+        </form>
+
+
+
+        <!-- RESULTS -->
+
+        <div
+            id="results"
+            class="progress-results"
+        >
+
+            <p class="result-label">
+                YOUR STRENGTH PROGRESS
+            </p>
+
+
+            <div class="main-result">
+
+                <span>
+                    ESTIMATED 1RM IMPROVEMENT
+                </span>
+
+                <strong id="progressPercent">
+                    --
+                </strong>
+
+            </div>
+
+
+            <div class="result-grid">
+
+
+                <div>
+
+                    <span>
+                        PREVIOUS 1RM
+                    </span>
+
+                    <strong id="oldOneRM">
+                        --
+                    </strong>
+
+                    <small>
+                        kg
+                    </small>
+
+                </div>
+
+
+
+                <div>
+
+                    <span>
+                        CURRENT 1RM
+                    </span>
+
+                    <strong id="newOneRM">
+                        --
+                    </strong>
+
+                    <small>
+                        kg
+                    </small>
+
+                </div>
+
+
+
+                <div>
+
+                    <span>
+                        STRENGTH GAIN
+                    </span>
+
+                    <strong id="strengthGain">
+                        --
+                    </strong>
+
+                    <small>
+                        kg
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-message">
+
+                <h3 id="progressTitle">
+                    --
+                </h3>
+
+                <p id="progressMessage">
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- EXPLANATION -->
+
+<section>
+
+    <p>
+        PROGRESS IS MORE THAN THE SCALE
+    </p>
+
+    <h2>
+        Stronger is measurable.
+    </h2>
+
+    <p>
+        Strength progression can be tracked through load,
+        repetitions, estimated 1RM and movement quality.
+    </p>
+
+    <p>
+        Comparing estimated 1RM helps account for situations
+        where your weight and repetitions have both changed.
+    </p>
+
+</section>
+
+
+
+<!-- CTA -->
+
+<section>
+
+    <p>
+        WANT TO BUILD YOUR STRENGTH?
+    </p>
+
+    <h2>
+        Turn progress into a program.
+    </h2>
+
+    <p>
+        FitNS.Arc Strength Coaching uses progressive training
+        built around your goals, experience and performance.
+    </p>
+
+    <a href="strength.html">
+        EXPLORE STRENGTH COACHING →
+    </a>
+
+</section>
+
+
+
+<footer>
+
+    <h3>
+        FitNS.Arc
+    </h3>
+
+    <p>
+        Train. Fuel. Perform.
+    </p>
+
+    <p>
+        © 2026 FitNS.Arc. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<style>
+
+/* =========================
+   CARD
+========================= */
+
+.progress-card {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.08);
+
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+#progressForm {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 22px;
+
+    margin-top: 30px;
+
+}
+
+
+.field {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.field.full {
+
+    grid-column:
+        1 / -1;
+
+}
+
+
+.field label {
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+
+}
+
+
+.field input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #d5d5d5;
+
+    border-radius: 7px;
+
+    background: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+}
+
+
+
+/* =========================
+   PERIOD BOXES
+========================= */
+
+.period-box {
+
+    padding: 25px;
+
+    background: #f5f5f3;
+
+    border-radius: 10px;
+
+}
+
+
+.period-box h3 {
+
+    margin-bottom: 20px;
+
+}
+
+
+.period-box .field {
+
+    margin-bottom: 18px;
+
+}
+
+
+.period-box .field:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+
+/* =========================
+   BUTTON
+========================= */
+
+#progressForm button {
+
+    grid-column:
+        1 / -1;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #111;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+
+/* =========================
+   RESULTS
+========================= */
+
+.progress-results {
+
+    display: none;
+
+    margin-top: 40px;
+
+    padding: 35px;
+
+    background: #f5f5f3;
+
+    border-radius: 10px;
+
+}
+
+
+.result-label {
+
+    text-align: center;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.main-result {
+
+    margin-top: 20px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+}
+
+
+.main-result span {
+
+    display: block;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #666;
+
+}
+
+
+.main-result strong {
+
+    display: block;
+
+    font-size: 58px;
+
+    margin: 8px 0;
+
+}
+
+
+.result-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 15px;
+
+}
+
+
+.result-grid div {
+
+    background: white;
+
+    padding: 20px;
+
+    text-align: center;
+
+    border-radius: 8px;
+
+}
+
+
+.result-grid span {
+
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #666;
+
+}
+
+
+.result-grid strong {
+
+    display: block;
+
+    font-size: 27px;
+
+    margin: 5px 0;
+
+}
+
+
+.result-grid small {
+
+    color: #777;
+
+}
+
+
+.progress-message {
+
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #ddd;
+
+    text-align: center;
+
+}
+
+
+.progress-message p {
+
+    color: #666;
+
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    .progress-card {
+
+        padding: 25px;
+
+    }
+
+
+    #progressForm {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .field.full {
+
+        grid-column:
+            auto;
+
+    }
+
+
+    #progressForm button {
+
+        grid-column:
+            auto;
+
+    }
+
+
+    .result-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .main-result strong {
+
+        font-size: 48px;
+
+    }
+
+}
+
+</style>
+
+
+
+<script>
+
+/* ==================================
+   ELEMENTS
+================================== */
+
+const progressForm =
+    document.getElementById(
+        "progressForm"
+    );
+
+
+
+/* ==================================
+   EPLEY 1RM
+================================== */
+
+function calculate1RM(
+    weight,
+    reps
+) {
+
+    return (
+        weight *
+        (
+            1 +
+            reps / 30
+        )
+    );
+
+}
+
+
+
+/* ==================================
+   FORM
+================================== */
+
+progressForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const exercise =
+            document.getElementById(
+                "exercise"
+            ).value.trim();
+
+
+        const oldWeight =
+            parseFloat(
+                document.getElementById(
+                    "oldWeight"
+                ).value
+            );
+
+
+        const oldReps =
+            parseInt(
+                document.getElementById(
+                    "oldReps"
+                ).value
+            );
+
+
+        const newWeight =
+            parseFloat(
+                document.getElementById(
+                    "newWeight"
+                ).value
+            );
+
+
+        const newReps =
+            parseInt(
+                document.getElementById(
+                    "newReps"
+                ).value
+            );
+
+
+        if (
+            oldWeight <= 0 ||
+            newWeight <= 0 ||
+            oldReps < 1 ||
+            newReps < 1
+        ) {
+
+            alert(
+                "Please enter valid performance data."
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * Estimated 1RM
+         */
+
+        const oldOneRM =
+            calculate1RM(
+                oldWeight,
+                oldReps
+            );
+
+
+        const newOneRM =
+            calculate1RM(
+                newWeight,
+                newReps
+            );
+
+
+        /*
+         * Absolute gain
+         */
+
+        const strengthGain =
+            newOneRM -
+            oldOneRM;
+
+
+        /*
+         * Percentage gain
+         */
+
+        const percentageGain =
+            (
+                strengthGain /
+                oldOneRM
+            )
+            *
+            100;
+
+
+        /*
+         * Display
+         */
+
+        document.getElementById(
+            "oldOneRM"
+        ).textContent =
+            oldOneRM.toFixed(1);
+
+
+        document.getElementById(
+            "newOneRM"
+        ).textContent =
+            newOneRM.toFixed(1);
+
+
+        document.getElementById(
+            "strengthGain"
+        ).textContent =
+            (
+                strengthGain >= 0
+                    ? "+"
+                    : ""
+            )
+            +
+            strengthGain.toFixed(1);
+
+
+        document.getElementById(
+            "progressPercent"
+        ).textContent =
+            (
+                percentageGain >= 0
+                    ? "+"
+                    : ""
+            )
+            +
+            percentageGain.toFixed(1)
+            +
+            "%";
+
+
+        /*
+         * Message
+         */
+
+        let title;
+
+        let message;
+
+
+        if (
+            percentageGain >= 20
+        ) {
+
+            title =
+                "Significant Progress";
+
+
+            message =
+                exercise +
+                " has shown a substantial improvement in estimated strength. Keep progressing while maintaining good technique and recovery.";
+
+        }
+
+        else if (
+            percentageGain >= 10
+        ) {
+
+            title =
+                "Strong Progress";
+
+
+            message =
+                "You've made a meaningful improvement in estimated strength. Consistent progressive training is working.";
+
+        }
+
+        else if (
+            percentageGain > 0
+        ) {
+
+            title =
+                "Progress Made";
+
+
+            message =
+                "Your estimated strength has improved. Small improvements accumulated consistently can make a big difference over time.";
+
+        }
+
+        else if (
+            percentageGain === 0
+        ) {
+
+            title =
+                "Holding Steady";
+
+
+            message =
+                "Your estimated strength is approximately unchanged. Look at technique, recovery, training volume and progression strategy.";
+
+        }
+
+        else {
+
+            title =
+                "Performance Has Decreased";
+
+
+            message =
+                "Your estimated strength is currently lower. This doesn't necessarily mean you've lost muscle or strength — fatigue, recovery and training conditions can affect performance.";
+
+        }
+
+
+        document.getElementById(
+            "progressTitle"
+        ).textContent =
+            title;
+
+
+        document.getElementById(
+            "progressMessage"
+        ).textContent =
+            message;
+
+
+        /*
+         * Show results
+         */
+
+        document.getElementById(
+            "results"
+        ).style.display =
+            "block";
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>
