@@ -11,7 +11,7 @@
     <title>BMI Calculator | FitNS.Arc</title>
 
     <meta name="description"
-        content="Calculate your BMI using the free FitNS.Arc BMI calculator.">
+        content="Calculate your BMI and understand your BMI category with the FitNS.Arc BMI calculator.">
 
     <link rel="stylesheet" href="style.css">
 
@@ -52,13 +52,13 @@
     <p>FITNS.ARC / BMI CALCULATOR</p>
 
     <h1>
-        Understand<br>
-        Your BMI.
+        Know Your<br>
+        Numbers.
     </h1>
 
     <p>
-        Enter your height and weight to calculate your
-        Body Mass Index.
+        A simple starting point to understand your BMI,
+        weight range and body-weight context.
     </p>
 
 </section>
@@ -69,18 +69,9 @@
 
 <section>
 
-    <div style="
-        max-width:600px;
-        margin:auto;
-        background:white;
-        padding:40px;
-        border-radius:12px;
-        box-shadow:0 10px 30px rgba(0,0,0,0.08);
-    ">
+    <div class="bmi-card">
 
-        <h2>
-            BMI Calculator
-        </h2>
+        <h2>BMI Calculator</h2>
 
         <p>
             Enter your details below.
@@ -90,7 +81,48 @@
         <form id="bmiForm">
 
 
-            <label>
+            <!-- AGE -->
+
+            <label for="age">
+                Age
+            </label>
+
+            <input
+                type="number"
+                id="age"
+                placeholder="Example: 29"
+                min="2"
+                max="120"
+                required
+            >
+
+
+            <!-- SEX -->
+
+            <label for="sex">
+                Sex
+            </label>
+
+            <select id="sex" required>
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="male">
+                    Male
+                </option>
+
+                <option value="female">
+                    Female
+                </option>
+
+            </select>
+
+
+            <!-- HEIGHT -->
+
+            <label for="height">
                 Height (cm)
             </label>
 
@@ -100,18 +132,14 @@
                 placeholder="Example: 174"
                 min="50"
                 max="250"
+                step="0.1"
                 required
-                style="
-                    width:100%;
-                    padding:15px;
-                    margin:8px 0 20px;
-                    border:1px solid #ddd;
-                    border-radius:7px;
-                "
             >
 
 
-            <label>
+            <!-- WEIGHT -->
+
+            <label for="weight">
                 Weight (kg)
             </label>
 
@@ -119,60 +147,55 @@
                 type="number"
                 id="weight"
                 placeholder="Example: 70"
-                min="20"
+                min="10"
                 max="300"
                 step="0.1"
                 required
-                style="
-                    width:100%;
-                    padding:15px;
-                    margin:8px 0 20px;
-                    border:1px solid #ddd;
-                    border-radius:7px;
-                "
             >
 
 
-            <button
-                type="submit"
-                style="
-                    width:100%;
-                    padding:16px;
-                    border:none;
-                    border-radius:7px;
-                    background:#111;
-                    color:white;
-                    font-weight:bold;
-                    cursor:pointer;
-                "
-            >
+            <button type="submit">
                 CALCULATE BMI →
             </button>
 
         </form>
 
 
+
+        <!-- RESULT -->
+
         <div
             id="result"
-            style="
-                display:none;
-                margin-top:30px;
-                padding:25px;
-                background:#f5f5f3;
-                border-radius:10px;
-                text-align:center;
-            "
+            class="bmi-result"
         >
 
-            <p>
+            <p class="result-label">
                 YOUR BMI
             </p>
 
-            <h2 id="bmiValue"></h2>
+            <h2 id="bmiValue">
+                --
+            </h2>
 
-            <h3 id="bmiCategory"></h3>
+            <h3 id="bmiCategory">
+                --
+            </h3>
 
-            <p id="bmiMessage"></p>
+            <p id="bmiMessage">
+            </p>
+
+
+            <div class="weight-range">
+
+                <p>
+                    STANDARD BMI WEIGHT RANGE
+                </p>
+
+                <strong id="weightRange">
+                    --
+                </strong>
+
+            </div>
 
         </div>
 
@@ -182,18 +205,29 @@
 
 
 
-<!-- DISCLAIMER -->
+<!-- EXPLANATION -->
 
 <section>
 
+    <p>
+        UNDERSTANDING BMI
+    </p>
+
     <h2>
-        A number is only a starting point.
+        BMI is a starting point,
+        not the whole picture.
     </h2>
 
     <p>
-        BMI is a simple screening measure and does not
-        directly measure body fat or body composition.
-        It should be interpreted alongside other factors.
+        BMI compares your weight with your height.
+        It is useful as a general screening measure,
+        but it does not directly measure body fat.
+    </p>
+
+    <p>
+        Muscle mass, body composition, waist circumference
+        and other factors can provide important additional
+        context.
     </p>
 
 </section>
@@ -211,6 +245,11 @@
     <h2>
         Let's build a plan around your goal.
     </h2>
+
+    <p>
+        Your numbers are only the starting point.
+        Coaching turns them into an actionable plan.
+    </p>
 
     <a href="apply.html">
         GET COACHED →
@@ -238,95 +277,365 @@
 
 
 
+<style>
+
+.bmi-card {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.08);
+
+}
+
+
+#bmiForm {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 18px 20px;
+
+    margin-top: 30px;
+
+}
+
+
+#bmiForm label {
+
+    font-weight: 700;
+
+    font-size: 14px;
+
+}
+
+
+#bmiForm input,
+#bmiForm select {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #d5d5d5;
+
+    border-radius: 7px;
+
+    background: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+}
+
+
+#bmiForm button {
+
+    grid-column:
+        1 / -1;
+
+    margin-top: 10px;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #111;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.bmi-result {
+
+    display: none;
+
+    margin-top: 35px;
+
+    padding: 30px;
+
+    background: #f5f5f3;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+}
+
+
+.result-label {
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+#bmiValue {
+
+    font-size: 64px;
+
+    margin: 5px 0;
+
+}
+
+
+#bmiCategory {
+
+    font-size: 22px;
+
+    margin-bottom: 10px;
+
+}
+
+
+#bmiMessage {
+
+    color: #666;
+
+}
+
+
+.weight-range {
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #ddd;
+
+}
+
+
+.weight-range p {
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+.weight-range strong {
+
+    font-size: 20px;
+
+}
+
+
+@media (max-width: 600px) {
+
+    #bmiForm {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    #bmiForm button {
+
+        grid-column: auto;
+
+    }
+
+    .bmi-card {
+
+        padding: 25px;
+
+    }
+
+}
+
+</style>
+
+
+
 <script>
 
-const form = document.getElementById("bmiForm");
-
-form.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const height =
-        parseFloat(
-            document.getElementById("height").value
-        );
-
-    const weight =
-        parseFloat(
-            document.getElementById("weight").value
-        );
+const form =
+    document.getElementById("bmiForm");
 
 
-    const heightInMeters =
-        height / 100;
+form.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
 
 
-    const bmi =
-        weight /
-        (heightInMeters * heightInMeters);
+        const age =
+            parseInt(
+                document.getElementById("age").value
+            );
 
 
-    const roundedBMI =
-        bmi.toFixed(1);
+        const sex =
+            document.getElementById("sex").value;
 
 
-    let category;
-    let message;
+        const height =
+            parseFloat(
+                document.getElementById("height").value
+            );
 
 
-    if (bmi < 18.5) {
+        const weight =
+            parseFloat(
+                document.getElementById("weight").value
+            );
 
-        category = "Underweight";
 
-        message =
-            "Your BMI is below the standard healthy range.";
+        /*
+         * BMI calculation
+         */
+
+        const heightMeters =
+            height / 100;
+
+
+        const bmi =
+            weight /
+            (heightMeters * heightMeters);
+
+
+        const roundedBMI =
+            bmi.toFixed(1);
+
+
+        /*
+         * Adult BMI interpretation
+         *
+         * For adults, BMI itself does not
+         * change based on age or sex.
+         */
+
+        let category;
+
+        let message;
+
+
+        if (bmi < 18.5) {
+
+            category =
+                "Underweight";
+
+            message =
+                "Your BMI is below the standard adult BMI range.";
+
+        }
+
+        else if (bmi < 25) {
+
+            category =
+                "Healthy Weight Range";
+
+            message =
+                "Your BMI falls within the standard adult BMI range.";
+
+        }
+
+        else if (bmi < 30) {
+
+            category =
+                "Overweight";
+
+            message =
+                "Your BMI is above the standard adult BMI range.";
+
+        }
+
+        else {
+
+            category =
+                "Obesity Range";
+
+            message =
+                "Your BMI falls within the obesity range.";
+
+        }
+
+
+        /*
+         * Standard BMI weight range
+         *
+         * BMI 18.5 to 24.9
+         */
+
+        const minimumWeight =
+            18.5 *
+            (heightMeters * heightMeters);
+
+
+        const maximumWeight =
+            24.9 *
+            (heightMeters * heightMeters);
+
+
+        const weightRange =
+            minimumWeight.toFixed(1)
+            + " kg – "
+            + maximumWeight.toFixed(1)
+            + " kg";
+
+
+        /*
+         * Display result
+         */
+
+        document.getElementById(
+            "bmiValue"
+        ).textContent =
+            roundedBMI;
+
+
+        document.getElementById(
+            "bmiCategory"
+        ).textContent =
+            category;
+
+
+        document.getElementById(
+            "bmiMessage"
+        ).textContent =
+            message;
+
+
+        document.getElementById(
+            "weightRange"
+        ).textContent =
+            weightRange;
+
+
+        document.getElementById(
+            "result"
+        ).style.display =
+            "block";
+
 
     }
-
-    else if (bmi < 25) {
-
-        category = "Healthy Weight Range";
-
-        message =
-            "Your BMI falls within the standard healthy range.";
-
-    }
-
-    else if (bmi < 30) {
-
-        category = "Overweight";
-
-        message =
-            "Your BMI is above the standard healthy range.";
-
-    }
-
-    else {
-
-        category = "Obesity Range";
-
-        message =
-            "Your BMI is in the obesity range.";
-
-    }
-
-
-    document.getElementById("bmiValue")
-        .textContent = roundedBMI;
-
-
-    document.getElementById("bmiCategory")
-        .textContent = category;
-
-
-    document.getElementById("bmiMessage")
-        .textContent = message;
-
-
-    document.getElementById("result")
-        .style.display = "block";
-
-});
+);
 
 </script>
 
