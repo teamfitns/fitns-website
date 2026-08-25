@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Coaching | FitNS.Arc</title>
+
+    <meta name="description" content="Explore FitNS.Arc coaching programs for strength, fat loss, running, marathon and Ironman training.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <h2>FitNS.Arc</h2>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="coaching.html">Coaching</a>
+        <a href="index.html#tools">Tools</a>
+        <a href="index.html#about">About</a>
+    </nav>
+
+    <a href="#programs">GET COACHED</a>
+
+</header>
+
+
+<section>
+
+    <p>FITNS.ARC / COACHING</p>
+
+    <h1>
+        Coaching<br>
+        Built Around<br>
+        Your Goal.
+    </h1>
+
+    <p>
+        Whether you want to get stronger, lose fat,
+        run your first marathon or take on an Ironman —
+        we build the process around you.
+    </p>
+
+</section>
+
+
+<section id="programs">
+
+    <h2>Choose Your Path</h2>
+
+    <p>
+        Different goals require different approaches.
+        Find the coaching program that fits your journey.
+    </p>
+
+    <div>
+
+        <article>
+
+            <h3>Strength Training</h3>
+
+            <p>
+                Build strength, muscle and better movement
+                through structured training.
+            </p>
+
+            <a href="strength.html">
+                EXPLORE →
+            </a>
+
+        </article>
+
+
+        <article>
+
+            <h3>Fat Loss Program</h3>
+
+            <p>
+                Lose body fat while building sustainable
+                nutrition, training and lifestyle habits.
+            </p>
+
+            <a href="fat-loss.html">
+                EXPLORE →
+            </a>
+
+        </article>
+
+
+        <article>
+
+            <h3>Running & Marathon</h3>
+
+            <p>
+                Structured running coaching for 5K,
+                10K, half marathon and marathon goals.
+            </p>
+
+            <a href="running.html">
+                EXPLORE →
+            </a>
+
+        </article>
+
+
+        <article>
+
+            <h3>Ironman Coaching</h3>
+
+            <p>
+                Structured endurance preparation for
+                triathlon and Ironman athletes.
+            </p>
+
+            <a href="ironman.html">
+                EXPLORE →
+            </a>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<section>
+
+    <p>THE FITNS.ARC APPROACH</p>
+
+    <h2>
+        Your goal determines the plan.
+    </h2>
+
+    <p>
+        We don't believe in one-size-fits-all fitness.
+        Training, nutrition, recovery and progression
+        should work together around your individual goal.
+    </p>
+
+</section>
+
+
+<section>
+
+    <h2>Not sure which program is right for you?</h2>
+
+    <p>
+        Tell us about your goal and we'll help you
+        find the right FitNS.Arc coaching path.
+    </p>
+
+    <a href="#">
+        TALK TO A COACH →
+    </a>
+
+</section>
+
+
+<footer>
+
+    <h3>FitNS.Arc</h3>
+
+    <p>Train. Fuel. Perform.</p>
+
+    <p>
+        © 2026 FitNS.Arc. All rights reserved.
+    </p>
+
+</footer>
+
+</body>
+</html>
