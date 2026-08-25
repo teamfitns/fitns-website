@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Race Time Predictor | FitNS.Arc</title>
+
+    <meta name="description"
+        content="Predict estimated 5K, 10K, half marathon and marathon times from a recent race performance with FitNS.Arc.">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h2>FitNS.Arc</h2>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="coaching.html">Coaching</a>
+
+        <a href="tools.html">Tools</a>
+
+        <a href="index.html#about">About</a>
+
+    </nav>
+
+    <a href="apply.html">
+        GET COACHED
+    </a>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section>
+
+    <p>FITNS.ARC / RACE PREDICTOR</p>
+
+    <h1>
+        How Fast<br>
+        Could You Go?
+    </h1>
+
+    <p>
+        Enter a recent race performance and estimate
+        equivalent times across common running distances.
+    </p>
+
+</section>
+
+
+
+<!-- CALCULATOR -->
+
+<section>
+
+    <div class="predictor-card">
+
+        <h2>Race Time Predictor</h2>
+
+        <p>
+            Use a recent race or time trial as your starting point.
+        </p>
+
+
+        <form id="predictorForm">
+
+
+            <div class="field full">
+
+                <label for="distance">
+                    Your Recent Race
+                </label>
+
+                <select id="distance" required>
+
+                    <option value="5">
+                        5K
+                    </option>
+
+                    <option value="10">
+                        10K
+                    </option>
+
+                    <option value="21.0975">
+                        Half Marathon
+                    </option>
+
+                    <option value="42.195">
+                        Marathon
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="field">
+
+                <label for="hours">
+                    Hours
+                </label>
+
+                <input
+                    type="number"
+                    id="hours"
+                    min="0"
+                    max="99"
+                    value="0"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="field">
+
+                <label for="minutes">
+                    Minutes
+                </label>
+
+                <input
+                    type="number"
+                    id="minutes"
+                    min="0"
+                    max="59"
+                    value="25"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="field full">
+
+                <label for="seconds">
+                    Seconds
+                </label>
+
+                <input
+                    type="number"
+                    id="seconds"
+                    min="0"
+                    max="59"
+                    value="0"
+                    required
+                >
+
+            </div>
+
+
+
+            <button type="submit">
+
+                PREDICT MY RACE TIMES →
+
+            </button>
+
+
+        </form>
+
+
+
+        <!-- RESULTS -->
+
+        <div
+            id="results"
+            class="predictor-results"
+        >
+
+            <p class="result-label">
+                ESTIMATED RACE TIMES
+            </p>
+
+
+            <div class="reference-result">
+
+                <span>
+                    YOUR REFERENCE PERFORMANCE
+                </span>
+
+                <strong id="referenceTime">
+                    --
+                </strong>
+
+            </div>
+
+
+
+            <div class="prediction-grid">
+
+
+                <div>
+
+                    <span>
+                        5K
+                    </span>
+
+                    <strong id="fiveK">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <div>
+
+                    <span>
+                        10K
+                    </span>
+
+                    <strong id="tenK">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <div>
+
+                    <span>
+                        HALF MARATHON
+                    </span>
+
+                    <strong id="half">
+                        --
+                    </strong>
+
+                </div>
+
+
+
+                <div>
+
+                    <span>
+                        MARATHON
+                    </span>
+
+                    <strong id="marathon">
+                        --
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="pace-grid">
+
+
+                <div>
+
+                    <span>
+                        5K PACE
+                    </span>
+
+                    <strong id="fiveKPace">
+                        --
+                    </strong>
+
+                    <small>
+                        min/km
+                    </small>
+
+                </div>
+
+
+
+                <div>
+
+                    <span>
+                        10K PACE
+                    </span>
+
+                    <strong id="tenKPace">
+                        --
+                    </strong>
+
+                    <small>
+                        min/km
+                    </small>
+
+                </div>
+
+
+
+                <div>
+
+                    <span>
+                        HALF PACE
+                    </span>
+
+                    <strong id="halfPace">
+                        --
+                    </strong>
+
+                    <small>
+                        min/km
+                    </small>
+
+                </div>
+
+
+
+                <div>
+
+                    <span>
+                        MARATHON PACE
+                    </span>
+
+                    <strong id="marathonPace">
+                        --
+                    </strong>
+
+                    <small>
+                        min/km
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="prediction-note">
+
+                <h3>
+                    What does this mean?
+                </h3>
+
+                <p>
+                    These are mathematical estimates based on
+                    your reference performance. Your actual
+                    performance depends on training, endurance,
+                    experience, course, weather and race-day
+                    execution.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- EXPLANATION -->
+
+<section>
+
+    <p>
+        THE RACE IS MORE THAN A FORMULA
+    </p>
+
+    <h2>
+        Prediction gives you a target.
+        Training gets you there.
+    </h2>
+
+    <p>
+        A 5K performance doesn't automatically translate
+        into the same level of performance over a marathon.
+        Longer races require specific endurance, fueling,
+        pacing and race preparation.
+    </p>
+
+</section>
+
+
+
+<!-- CTA -->
+
+<section>
+
+    <p>
+        HAVE A RACE GOAL?
+    </p>
+
+    <h2>
+        Let's turn your potential
+        into performance.
+    </h2>
+
+    <p>
+        FitNS.Arc Running & Marathon Coaching creates
+        structured training around your current fitness
+        and target race.
+    </p>
+
+    <a href="running.html">
+        EXPLORE RUNNING COACHING →
+    </a>
+
+</section>
+
+
+
+<footer>
+
+    <h3>
+        FitNS.Arc
+    </h3>
+
+    <p>
+        Train. Fuel. Perform.
+    </p>
+
+    <p>
+        © 2026 FitNS.Arc. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<style>
+
+/* =========================
+   CARD
+========================= */
+
+.predictor-card {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.08);
+
+}
+
+
+
+/* =========================
+   FORM
+========================= */
+
+#predictorForm {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 22px;
+
+    margin-top: 30px;
+
+}
+
+
+.field {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.field.full {
+
+    grid-column:
+        1 / -1;
+
+}
+
+
+.field label {
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+
+}
+
+
+.field input,
+.field select {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #d5d5d5;
+
+    border-radius: 7px;
+
+    background: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+}
+
+
+#predictorForm button {
+
+    grid-column:
+        1 / -1;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #111;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+
+/* =========================
+   RESULTS
+========================= */
+
+.predictor-results {
+
+    display: none;
+
+    margin-top: 40px;
+
+    padding: 35px;
+
+    background: #f5f5f3;
+
+    border-radius: 10px;
+
+}
+
+
+.result-label {
+
+    text-align: center;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.reference-result {
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background: white;
+
+    border-radius: 9px;
+
+    text-align: center;
+
+}
+
+
+.reference-result span {
+
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #666;
+
+}
+
+
+.reference-result strong {
+
+    display: block;
+
+    font-size: 35px;
+
+    margin-top: 5px;
+
+}
+
+
+
+/* =========================
+   PREDICTIONS
+========================= */
+
+.prediction-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 12px;
+
+    margin-top: 15px;
+
+}
+
+
+.prediction-grid div {
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 8px;
+
+    text-align: center;
+
+}
+
+
+.prediction-grid span,
+.pace-grid span {
+
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: #666;
+
+}
+
+
+.prediction-grid strong {
+
+    display: block;
+
+    font-size: 28px;
+
+    margin-top: 7px;
+
+}
+
+
+
+/* =========================
+   PACE
+========================= */
+
+.pace-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+
+    margin-top: 15px;
+
+}
+
+
+.pace-grid div {
+
+    background: white;
+
+    padding: 18px 10px;
+
+    border-radius: 8px;
+
+    text-align: center;
+
+}
+
+
+.pace-grid strong {
+
+    display: block;
+
+    font-size: 20px;
+
+    margin: 6px 0;
+
+}
+
+
+.pace-grid small {
+
+    color: #777;
+
+}
+
+
+
+/* =========================
+   NOTE
+========================= */
+
+.prediction-note {
+
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #ddd;
+
+    text-align: center;
+
+}
+
+
+.prediction-note p {
+
+    color: #666;
+
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    .predictor-card {
+
+        padding: 25px;
+
+    }
+
+
+    #predictorForm {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .field.full {
+
+        grid-column:
+            auto;
+
+    }
+
+
+    #predictorForm button {
+
+        grid-column:
+            auto;
+
+    }
+
+
+    .prediction-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .pace-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+}
+
+</style>
+
+
+
+<script>
+
+/* ==================================
+   ELEMENTS
+================================== */
+
+const predictorForm =
+    document.getElementById(
+        "predictorForm"
+    );
+
+
+
+/* ==================================
+   FORMAT TIME
+================================== */
+
+function formatTime(
+    totalSeconds
+) {
+
+    totalSeconds =
+        Math.round(
+            totalSeconds
+        );
+
+
+    const hours =
+        Math.floor(
+            totalSeconds / 3600
+        );
+
+
+    const minutes =
+        Math.floor(
+            (
+                totalSeconds % 3600
+            ) / 60
+        );
+
+
+    const seconds =
+        totalSeconds % 60;
+
+
+    if (hours > 0) {
+
+        return (
+            hours
+            + ":"
+            + String(
+                minutes
+            ).padStart(2, "0")
+            + ":"
+            + String(
+                seconds
+            ).padStart(2, "0")
+        );
+
+    }
+
+
+    return (
+        minutes
+        + ":"
+        + String(
+            seconds
+        ).padStart(2, "0")
+    );
+
+}
+
+
+
+/* ==================================
+   FORMAT PACE
+================================== */
+
+function formatPace(
+    totalSeconds
+) {
+
+    totalSeconds =
+        Math.max(
+            0,
+            totalSeconds
+        );
+
+
+    const minutes =
+        Math.floor(
+            totalSeconds / 60
+        );
+
+
+    const seconds =
+        Math.round(
+            totalSeconds % 60
+        );
+
+
+    if (
+        seconds === 60
+    ) {
+
+        return (
+            minutes + 1
+            + ":00"
+        );
+
+    }
+
+
+    return (
+        minutes
+        + ":"
+        + String(
+            seconds
+        ).padStart(2, "0")
+    );
+
+}
+
+
+
+/* ==================================
+   RIEGEL PREDICTION
+================================== */
+
+function predictTime(
+    referenceTime,
+    referenceDistance,
+    targetDistance
+) {
+
+    /*
+     * Riegel formula:
+     *
+     * T2 = T1 × (D2 / D1)^1.06
+     */
+
+    return (
+        referenceTime
+        *
+        Math.pow(
+            targetDistance /
+            referenceDistance,
+            1.06
+        )
+    );
+
+}
+
+
+
+/* ==================================
+   FORM
+================================== */
+
+predictorForm.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const referenceDistance =
+            parseFloat(
+                document.getElementById(
+                    "distance"
+                ).value
+            );
+
+
+        const hours =
+            parseInt(
+                document.getElementById(
+                    "hours"
+                ).value || 0
+            );
+
+
+        const minutes =
+            parseInt(
+                document.getElementById(
+                    "minutes"
+                ).value || 0
+            );
+
+
+        const seconds =
+            parseInt(
+                document.getElementById(
+                    "seconds"
+                ).value || 0
+            );
+
+
+        const referenceTime =
+            (
+                hours * 3600
+            )
+            +
+            (
+                minutes * 60
+            )
+            +
+            seconds;
+
+
+        if (
+            referenceTime <= 0
+        ) {
+
+            alert(
+                "Please enter a valid race time."
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * Target distances
+         */
+
+        const fiveK =
+            predictTime(
+                referenceTime,
+                referenceDistance,
+                5
+            );
+
+
+        const tenK =
+            predictTime(
+                referenceTime,
+                referenceDistance,
+                10
+            );
+
+
+        const half =
+            predictTime(
+                referenceTime,
+                referenceDistance,
+                21.0975
+            );
+
+
+        const marathon =
+            predictTime(
+                referenceTime,
+                referenceDistance,
+                42.195
+            );
+
+
+        /*
+         * Target paces
+         */
+
+        const fiveKPace =
+            fiveK / 5;
+
+
+        const tenKPace =
+            tenK / 10;
+
+
+        const halfPace =
+            half / 21.0975;
+
+
+        const marathonPace =
+            marathon / 42.195;
+
+
+        /*
+         * Display reference
+         */
+
+        document.getElementById(
+            "referenceTime"
+        ).textContent =
+            formatTime(
+                referenceTime
+            );
+
+
+        /*
+         * Display predictions
+         */
+
+        document.getElementById(
+            "fiveK"
+        ).textContent =
+            formatTime(
+                fiveK
+            );
+
+
+        document.getElementById(
+            "tenK"
+        ).textContent =
+            formatTime(
+                tenK
+            );
+
+
+        document.getElementById(
+            "half"
+        ).textContent =
+            formatTime(
+                half
+            );
+
+
+        document.getElementById(
+            "marathon"
+        ).textContent =
+            formatTime(
+                marathon
+            );
+
+
+        /*
+         * Display paces
+         */
+
+        document.getElementById(
+            "fiveKPace"
+        ).textContent =
+            formatPace(
+                fiveKPace
+            );
+
+
+        document.getElementById(
+            "tenKPace"
+        ).textContent =
+            formatPace(
+                tenKPace
+            );
+
+
+        document.getElementById(
+            "halfPace"
+        ).textContent =
+            formatPace(
+                halfPace
+            );
+
+
+        document.getElementById(
+            "marathonPace"
+        ).textContent =
+            formatPace(
+                marathonPace
+            );
+
+
+        /*
+         * Show results
+         */
+
+        document.getElementById(
+            "results"
+        ).style.display =
+            "block";
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>
