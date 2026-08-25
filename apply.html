@@ -225,7 +225,7 @@
 
         <h2>Coaching Application</h2>
 
-        <form class="application-form">
+        <form class="application-form" id="coachingForm">
 
             <div class="form-field">
 
@@ -377,7 +377,67 @@
     <p>© 2026 FitNS.Arc. All rights reserved.</p>
 
 </footer>
+<script>
 
+const form = document.getElementById("coachingForm");
+
+form.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const button = form.querySelector("button");
+
+    button.disabled = true;
+    button.innerText = "SUBMITTING...";
+
+    const formData = new FormData(form);
+
+    try {
+
+        await fetch(
+            "https://script.google.com/macros/s/AKfycbziMQXjik3_4Spw6X7UG5qctLw_edk50ePjY04RvcB-eO15WrLdLR5ofZCA2p7QhjO0/exec",
+            {
+                method: "POST",
+                body: formData,
+                mode: "no-cors"
+            }
+        );
+
+        form.innerHTML = `
+            <div style="
+                grid-column: 1 / -1;
+                text-align: center;
+                padding: 60px 20px;
+            ">
+
+                <h2>Application Received.</h2>
+
+                <p style="
+                    margin-top: 15px;
+                    color: #666;
+                    font-size: 17px;
+                ">
+                    Thank you for reaching out to FitNS.Arc.
+                    We'll get in touch with you soon.
+                </p>
+
+            </div>
+        `;
+
+    } catch (error) {
+
+        button.disabled = false;
+        button.innerText = "SUBMIT APPLICATION →";
+
+        alert(
+            "Something went wrong. Please try again."
+        );
+
+    }
+
+});
+
+</script>
 </body>
 
 </html>
