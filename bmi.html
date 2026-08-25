@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>BMI Calculator | FitNS.Arc</title>
+
+    <meta name="description"
+        content="Calculate your BMI using the free FitNS.Arc BMI calculator.">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h2>FitNS.Arc</h2>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="coaching.html">Coaching</a>
+
+        <a href="tools.html">Tools</a>
+
+        <a href="index.html#about">About</a>
+
+    </nav>
+
+    <a href="apply.html">
+        GET COACHED
+    </a>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section>
+
+    <p>FITNS.ARC / BMI CALCULATOR</p>
+
+    <h1>
+        Understand<br>
+        Your BMI.
+    </h1>
+
+    <p>
+        Enter your height and weight to calculate your
+        Body Mass Index.
+    </p>
+
+</section>
+
+
+
+<!-- CALCULATOR -->
+
+<section>
+
+    <div style="
+        max-width:600px;
+        margin:auto;
+        background:white;
+        padding:40px;
+        border-radius:12px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    ">
+
+        <h2>
+            BMI Calculator
+        </h2>
+
+        <p>
+            Enter your details below.
+        </p>
+
+
+        <form id="bmiForm">
+
+
+            <label>
+                Height (cm)
+            </label>
+
+            <input
+                type="number"
+                id="height"
+                placeholder="Example: 174"
+                min="50"
+                max="250"
+                required
+                style="
+                    width:100%;
+                    padding:15px;
+                    margin:8px 0 20px;
+                    border:1px solid #ddd;
+                    border-radius:7px;
+                "
+            >
+
+
+            <label>
+                Weight (kg)
+            </label>
+
+            <input
+                type="number"
+                id="weight"
+                placeholder="Example: 70"
+                min="20"
+                max="300"
+                step="0.1"
+                required
+                style="
+                    width:100%;
+                    padding:15px;
+                    margin:8px 0 20px;
+                    border:1px solid #ddd;
+                    border-radius:7px;
+                "
+            >
+
+
+            <button
+                type="submit"
+                style="
+                    width:100%;
+                    padding:16px;
+                    border:none;
+                    border-radius:7px;
+                    background:#111;
+                    color:white;
+                    font-weight:bold;
+                    cursor:pointer;
+                "
+            >
+                CALCULATE BMI →
+            </button>
+
+        </form>
+
+
+        <div
+            id="result"
+            style="
+                display:none;
+                margin-top:30px;
+                padding:25px;
+                background:#f5f5f3;
+                border-radius:10px;
+                text-align:center;
+            "
+        >
+
+            <p>
+                YOUR BMI
+            </p>
+
+            <h2 id="bmiValue"></h2>
+
+            <h3 id="bmiCategory"></h3>
+
+            <p id="bmiMessage"></p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- DISCLAIMER -->
+
+<section>
+
+    <h2>
+        A number is only a starting point.
+    </h2>
+
+    <p>
+        BMI is a simple screening measure and does not
+        directly measure body fat or body composition.
+        It should be interpreted alongside other factors.
+    </p>
+
+</section>
+
+
+
+<!-- CTA -->
+
+<section>
+
+    <p>
+        WANT TO GO BEYOND THE NUMBERS?
+    </p>
+
+    <h2>
+        Let's build a plan around your goal.
+    </h2>
+
+    <a href="apply.html">
+        GET COACHED →
+    </a>
+
+</section>
+
+
+
+<footer>
+
+    <h3>
+        FitNS.Arc
+    </h3>
+
+    <p>
+        Train. Fuel. Perform.
+    </p>
+
+    <p>
+        © 2026 FitNS.Arc. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<script>
+
+const form = document.getElementById("bmiForm");
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const height =
+        parseFloat(
+            document.getElementById("height").value
+        );
+
+    const weight =
+        parseFloat(
+            document.getElementById("weight").value
+        );
+
+
+    const heightInMeters =
+        height / 100;
+
+
+    const bmi =
+        weight /
+        (heightInMeters * heightInMeters);
+
+
+    const roundedBMI =
+        bmi.toFixed(1);
+
+
+    let category;
+    let message;
+
+
+    if (bmi < 18.5) {
+
+        category = "Underweight";
+
+        message =
+            "Your BMI is below the standard healthy range.";
+
+    }
+
+    else if (bmi < 25) {
+
+        category = "Healthy Weight Range";
+
+        message =
+            "Your BMI falls within the standard healthy range.";
+
+    }
+
+    else if (bmi < 30) {
+
+        category = "Overweight";
+
+        message =
+            "Your BMI is above the standard healthy range.";
+
+    }
+
+    else {
+
+        category = "Obesity Range";
+
+        message =
+            "Your BMI is in the obesity range.";
+
+    }
+
+
+    document.getElementById("bmiValue")
+        .textContent = roundedBMI;
+
+
+    document.getElementById("bmiCategory")
+        .textContent = category;
+
+
+    document.getElementById("bmiMessage")
+        .textContent = message;
+
+
+    document.getElementById("result")
+        .style.display = "block";
+
+});
+
+</script>
+
+
+</body>
+
+</html>
