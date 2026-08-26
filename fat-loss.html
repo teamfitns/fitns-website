@@ -17,36 +17,58 @@
 
     <h2>FitNS.Arc</h2>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="index.html#coaching">Coaching</a>
-        <a href="index.html#tools">Tools</a>
-        <a href="index.html#about">About</a>
-    </nav>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="coaching.html">Coaching</a>
+    <a href="tools.html">Tools</a>
+    <a href="index.html#about">About</a>
+</nav>
 
-    <a href="#apply">GET STARTED</a>
+<a href="apply.html">GET STARTED</a>
 
 </header>
 
 
 <!-- HERO -->
 
-<section>
+<section class="fatloss-hero">
 
-    <p>FITNS.ARC / FAT LOSS</p>
+    <div class="hero-content">
 
-    <h1>
-        Lose Fat.<br>
-        Get Stronger.<br>
-        Stay Consistent.
-    </h1>
+        <p class="eyebrow">
+            FITNS.ARC / FAT LOSS COACHING
+        </p>
 
-    <p>
-        A personalised fat loss program built around your
-        nutrition, training, lifestyle and goals.
-    </p>
+        <h1>
+            Lose Fat.<br>
+            Get Stronger.<br>
+            Stay Consistent.
+        </h1>
 
-    <a href="#apply">START YOUR JOURNEY</a>
+        <p class="hero-description">
+            A personalised fat loss program built around your
+            nutrition, training, lifestyle and goals.
+        </p>
+
+        <div class="hero-actions">
+
+            <a
+                class="primary-button"
+                href="apply.html"
+            >
+                START YOUR JOURNEY →
+            </a>
+
+            <a
+                class="secondary-button"
+                href="tools.html"
+            >
+                EXPLORE FREE TOOLS
+            </a>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -213,6 +235,180 @@
     </p>
 
 </footer>
+<style>
 
+.fatloss-hero {
+
+    padding:
+        100px 0 120px;
+
+    min-height:
+        65vh;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+}
+
+
+.hero-content {
+
+    max-width:
+        850px;
+
+}
+
+
+.eyebrow {
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        2px;
+
+    color:
+        #666;
+
+}
+
+
+.fatloss-hero h1 {
+
+    font-size:
+        clamp(48px, 7vw, 82px);
+
+    line-height:
+        0.98;
+
+    letter-spacing:
+        -2px;
+
+    margin:
+        20px 0 30px;
+
+}
+
+
+.hero-description {
+
+    max-width:
+        650px;
+
+    font-size:
+        19px;
+
+    line-height:
+        1.7;
+
+    color:
+        #555;
+
+}
+
+
+.hero-actions {
+
+    display:
+        flex;
+
+    gap:
+        14px;
+
+    flex-wrap:
+        wrap;
+
+    margin-top:
+        30px;
+
+}
+
+
+.primary-button,
+.secondary-button {
+
+    display:
+        inline-block;
+
+    padding:
+        15px 22px;
+
+    border-radius:
+        7px;
+
+    text-decoration:
+        none;
+
+    font-weight:
+        700;
+
+    font-size:
+        13px;
+
+}
+
+
+.primary-button {
+
+    background:
+        #111;
+
+    color:
+        white;
+
+}
+
+
+.secondary-button {
+
+    border:
+        1px solid #111;
+
+    color:
+        #111;
+
+}
+
+
+@media (max-width: 600px) {
+
+    .fatloss-hero {
+
+        padding:
+            70px 0 90px;
+
+    }
+
+    .fatloss-hero h1 {
+
+        letter-spacing:
+            -1px;
+
+    }
+
+    .hero-actions {
+
+        flex-direction:
+            column;
+
+    }
+
+    .primary-button,
+    .secondary-button {
+
+        text-align:
+            center;
+
+    }
+
+}
+
+</style>
 </body>
 </html>
