@@ -98,57 +98,114 @@
 
 <!-- WHAT YOU GET -->
 
-<section id="program">
+<section id="program" class="included-section">
 
-    <h2>What's included?</h2>
+    <p class="eyebrow">
+        WHAT YOU GET
+    </p>
 
-    <div>
+    <h2>
+        Everything you need<br>
+        to make fat loss work.
+    </h2>
 
-        <article>
+    <div class="included-grid">
 
-            <h3>Personalised Nutrition</h3>
+        <article class="included-card">
+
+            <span>01</span>
+
+            <h3>
+                Personalised Nutrition
+            </h3>
 
             <p>
-                Understand how much you need to eat,
-                what to prioritise and how to make your
-                diet work around your lifestyle.
+                Calorie and protein targets designed around
+                your body, activity, food preferences and
+                fat loss goal.
             </p>
 
         </article>
 
 
-        <article>
+        <article class="included-card">
 
-            <h3>Training Guidance</h3>
+            <span>02</span>
+
+            <h3>
+                Strength Training
+            </h3>
 
             <p>
-                Structured training designed to help you
-                retain muscle, build strength and improve
-                your overall fitness.
+                Structured resistance training designed to
+                help you maintain muscle, build strength and
+                improve your body composition.
             </p>
 
         </article>
 
 
-        <article>
+        <article class="included-card">
 
-            <h3>Progress Tracking</h3>
+            <span>03</span>
+
+            <h3>
+                Activity & Cardio
+            </h3>
 
             <p>
-                Track meaningful changes in your weight,
-                measurements, performance and habits.
+                A realistic approach to steps, cardio and
+                everyday movement that fits your lifestyle.
             </p>
 
         </article>
 
 
-        <article>
+        <article class="included-card">
 
-            <h3>Coach Guidance</h3>
+            <span>04</span>
+
+            <h3>
+                Progress Tracking
+            </h3>
 
             <p>
-                Get guidance, accountability and adjustments
-                as you progress through your journey.
+                Track weight, measurements, training
+                performance and other meaningful indicators
+                rather than relying on the scale alone.
+            </p>
+
+        </article>
+
+
+        <article class="included-card">
+
+            <span>05</span>
+
+            <h3>
+                Ongoing Adjustments
+            </h3>
+
+            <p>
+                Your strategy evolves as your body, schedule,
+                performance and circumstances change.
+            </p>
+
+        </article>
+
+
+        <article class="included-card">
+
+            <span>06</span>
+
+            <h3>
+                Coaching & Accountability
+            </h3>
+
+            <p>
+                Guidance throughout the process so you know
+                what to focus on, what to change and what to
+                keep doing.
             </p>
 
         </article>
@@ -408,7 +465,162 @@
     }
 
 }
+<style>
 
+.included-section {
+
+    padding:
+        90px 0;
+
+}
+
+
+.included-section > h2 {
+
+    font-size:
+        clamp(36px, 5vw, 58px);
+
+    line-height:
+        1.05;
+
+    letter-spacing:
+        -1px;
+
+    margin:
+        12px 0 45px;
+
+}
+
+
+.eyebrow {
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        2px;
+
+    color:
+        #666;
+
+}
+
+
+.included-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        18px;
+
+}
+
+
+.included-card {
+
+    background:
+        #fff;
+
+    padding:
+        30px;
+
+    border-radius:
+        12px;
+
+    border:
+        1px solid #eee;
+
+    min-height:
+        220px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.included-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.08);
+
+}
+
+
+.included-card > span {
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    color:
+        #888;
+
+    letter-spacing:
+        1px;
+
+}
+
+
+.included-card h3 {
+
+    font-size:
+        21px;
+
+    margin:
+        16px 0 10px;
+
+}
+
+
+.included-card p {
+
+    color:
+        #666;
+
+    line-height:
+        1.65;
+
+}
+
+
+@media (max-width: 850px) {
+
+    .included-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .included-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+</style>
 </style>
 </body>
 </html>
