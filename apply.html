@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,197 +14,477 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+
+        /* =========================
+           APPLICATION HERO
+        ========================= */
+
         .application-hero {
+
             min-height: 48vh !important;
+
             padding: 90px 7% !important;
+
             background: #111 !important;
+
             color: #fff !important;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
         }
+
 
         .application-hero .eyebrow {
+
             color: #d4a43a;
+
             font-size: 14px;
+
             font-weight: 700;
+
             letter-spacing: 3px;
+
             margin-bottom: 20px;
+
         }
+
 
         .application-hero h1 {
-            max-width: 700px;
+
+            max-width: 800px;
+
             font-size: clamp(52px, 8vw, 90px);
+
             line-height: .95;
-            margin-bottom: 25px;
+
+            margin: 0 0 25px;
+
         }
+
 
         .application-hero p {
-            max-width: 600px;
+
+            max-width: 650px;
+
             color: #ccc;
+
             font-size: 19px;
+
+            line-height: 1.7;
+
         }
+
+
+
+        /* =========================
+           APPLICATION AREA
+        ========================= */
 
         .application-area {
+
             background: #f5f5f3;
+
             padding: 70px 7%;
+
         }
+
 
         .application-card {
+
             max-width: 1100px;
+
             margin: 0 auto;
+
             background: #fff;
+
             padding: 45px;
+
             border-radius: 14px;
-            box-shadow: 0 10px 40px rgba(0,0,0,.08);
+
+            box-shadow:
+                0 10px 40px rgba(0,0,0,.08);
+
         }
+
 
         .application-card h2 {
+
             font-size: 38px;
-            margin-bottom: 35px;
+
+            margin: 0 0 10px;
+
         }
+
 
         .application-card h2::after {
+
             content: "";
+
             display: block;
+
             width: 45px;
+
             height: 4px;
+
             background: #d4a43a;
+
             margin-top: 12px;
+
         }
+
+
+        .application-intro {
+
+            color: #666;
+
+            margin-bottom: 35px;
+
+            line-height: 1.6;
+
+        }
+
+
+
+        /* =========================
+           FORM
+        ========================= */
 
         .application-form {
+
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
             gap: 25px;
+
         }
+
 
         .form-field {
+
             display: flex;
+
             flex-direction: column;
+
         }
+
 
         .form-field.full {
+
             grid-column: 1 / -1;
+
         }
+
 
         .form-field label {
+
             font-size: 14px;
+
             font-weight: 700;
+
             margin-bottom: 8px;
+
         }
 
+
         .form-field label span {
+
             color: #c33;
+
         }
+
 
         .form-field input,
         .form-field select,
         .form-field textarea {
+
             width: 100%;
+
+            box-sizing: border-box;
+
             padding: 15px;
-            border: 1px solid #d8d8d8;
+
+            border:
+                1px solid #d8d8d8;
+
             border-radius: 7px;
+
             background: #fff;
+
             color: #111;
-            font-family: Arial, Helvetica, sans-serif;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
             font-size: 15px;
+
             outline: none;
+
             transition: .2s;
+
         }
+
 
         .form-field input:focus,
         .form-field select:focus,
         .form-field textarea:focus {
+
             border-color: #111;
-            box-shadow: 0 0 0 2px rgba(212,164,58,.15);
+
+            box-shadow:
+                0 0 0 2px rgba(212,164,58,.15);
+
         }
+
 
         .form-field textarea {
+
             min-height: 140px;
+
             resize: vertical;
+
         }
+
+
+
+        /* =========================
+           SUBMIT
+        ========================= */
 
         .submit-area {
+
             grid-column: 1 / -1;
+
             text-align: center;
+
             margin-top: 10px;
+
         }
+
 
         .submit-button {
-            width: min(500px, 100%);
-            padding: 17px 30px;
+
+            width:
+                min(500px, 100%);
+
+            padding:
+                17px 30px;
+
             border: none;
+
             border-radius: 7px;
+
             background: #111;
+
             color: #fff;
+
             font-size: 14px;
+
             font-weight: 700;
+
             letter-spacing: 1px;
+
             cursor: pointer;
+
             transition: .2s;
+
         }
 
-        .submit-button:hover {
+
+        .submit-button:hover:not(:disabled) {
+
             background: #d4a43a;
+
             color: #111;
+
         }
+
+
+        .submit-button:disabled {
+
+            opacity: .65;
+
+            cursor: wait;
+
+        }
+
 
         .privacy-note {
+
             margin-top: 14px;
+
             font-size: 13px;
+
             color: #888;
+
         }
+
+
+
+        /* =========================
+           SUCCESS MESSAGE
+        ========================= */
+
+        .success-message {
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+        }
+
+
+        .success-message h2 {
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .success-message h2::after {
+
+            display: none;
+
+        }
+
+
+        .success-message p {
+
+            color: #666;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .success-message a {
+
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 14px 22px;
+
+            background: #111;
+
+            color: #fff;
+
+            text-decoration: none;
+
+            border-radius: 7px;
+
+            font-weight: 700;
+
+        }
+
+
+
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media (max-width: 768px) {
 
             .application-hero {
+
                 min-height: auto !important;
-                padding: 70px 6% !important;
+
+                padding:
+                    70px 6% !important;
+
             }
+
 
             .application-card {
-                padding: 28px 20px;
+
+                padding:
+                    28px 20px;
+
             }
+
 
             .application-card h2 {
+
                 font-size: 30px;
+
             }
+
 
             .application-form {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
+
             }
 
-            .form-field.full {
-                grid-column: auto;
-            }
 
+            .form-field.full,
             .submit-area {
+
                 grid-column: auto;
+
             }
+
         }
+
     </style>
 
 </head>
 
+
 <body>
+
 
 <header>
 
     <h2>FitNS.Arc</h2>
 
     <nav>
-        <a href="index.html">Home</a>
-        <a href="coaching.html">Coaching</a>
-        <a href="index.html#tools">Tools</a>
-        <a href="index.html#about">About</a>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="coaching.html">
+            Coaching
+        </a>
+
+        <a href="tools.html">
+            Tools
+        </a>
+
+        <a href="index.html#about">
+            About
+        </a>
+
     </nav>
 
-    <a href="coaching.html">COACHING</a>
+    <a href="coaching.html">
+        COACHING
+    </a>
 
 </header>
 
 
+
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="application-hero">
 
-    <p class="eyebrow">FITNS.ARC / COACHING APPLICATION</p>
+    <p class="eyebrow">
+        FITNS.ARC / COACHING APPLICATION
+    </p>
 
     <h1>
         Let's Build<br>
@@ -219,13 +500,35 @@
 </section>
 
 
+
+<!-- =========================
+     APPLICATION
+========================= -->
+
 <section class="application-area">
 
     <div class="application-card">
 
-        <h2>Coaching Application</h2>
+        <h2>
+            Coaching Application
+        </h2>
 
-        <form class="application-form" id="coachingForm">
+        <p class="application-intro">
+
+            Complete the form below. We'll review your
+            application and get in touch with you regarding
+            the next steps.
+
+        </p>
+
+
+        <form
+            class="application-form"
+            id="coachingForm"
+        >
+
+
+            <!-- NAME -->
 
             <div class="form-field">
 
@@ -242,6 +545,9 @@
             </div>
 
 
+
+            <!-- EMAIL -->
+
             <div class="form-field">
 
                 <label>
@@ -256,6 +562,9 @@
 
             </div>
 
+
+
+            <!-- PHONE -->
 
             <div class="form-field">
 
@@ -272,15 +581,22 @@
             </div>
 
 
+
+            <!-- PROGRAM -->
+
             <div class="form-field">
 
                 <label>
                     What are you looking for? <span>*</span>
                 </label>
 
-                <select name="program" required>
+                <select
+                    name="program"
+                    required>
 
-                    <option value="">Select a program</option>
+                    <option value="">
+                        Select a program
+                    </option>
 
                     <option value="Strength Training Coaching">
                         Strength Training Coaching
@@ -303,6 +619,9 @@
             </div>
 
 
+
+            <!-- GOAL -->
+
             <div class="form-field">
 
                 <label>
@@ -317,10 +636,14 @@
             </div>
 
 
+
+            <!-- EXPERIENCE -->
+
             <div class="form-field">
 
                 <label>
-                    Tell us about your current fitness/training <span>*</span>
+                    Tell us about your current fitness/training
+                    <span>*</span>
                 </label>
 
                 <textarea
@@ -330,6 +653,9 @@
 
             </div>
 
+
+
+            <!-- MESSAGE -->
 
             <div class="form-field full">
 
@@ -345,6 +671,9 @@
             </div>
 
 
+
+            <!-- SUBMIT -->
+
             <div class="submit-area">
 
                 <button
@@ -356,10 +685,14 @@
                 </button>
 
                 <p class="privacy-note">
-                    🔒 Your information is used only to contact you regarding FitNS.Arc coaching.
+
+                    🔒 Your information is used only to
+                    contact you regarding FitNS.Arc coaching.
+
                 </p>
 
             </div>
+
 
         </form>
 
@@ -368,76 +701,132 @@
 </section>
 
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-    <h3>FitNS.Arc</h3>
+    <h3>
+        FitNS.Arc
+    </h3>
 
-    <p>Train. Fuel. Perform.</p>
+    <p>
+        Train. Fuel. Perform.
+    </p>
 
-    <p>© 2026 FitNS.Arc. All rights reserved.</p>
+    <p>
+        © 2026 FitNS.Arc. All rights reserved.
+    </p>
 
 </footer>
+
+
+
+<!-- =========================
+     FORM SUBMISSION
+========================= -->
+
 <script>
 
-const form = document.getElementById("coachingForm");
+const form =
+    document.getElementById("coachingForm");
 
-form.addEventListener("submit", async function(event) {
 
-    event.preventDefault();
+form.addEventListener(
+    "submit",
+    async function(event) {
 
-    const button = form.querySelector("button");
+        event.preventDefault();
 
-    button.disabled = true;
-    button.innerText = "SUBMITTING...";
 
-    const formData = new FormData(form);
+        const button =
+            form.querySelector("button");
 
-    try {
 
-        await fetch(
-            "https://script.google.com/macros/s/AKfycbziMQXjik3_4Spw6X7UG5qctLw_edk50ePjY04RvcB-eO15WrLdLR5ofZCA2p7QhjO0/exec",
-            {
-                method: "POST",
-                body: formData,
-                mode: "no-cors"
-            }
-        );
+        button.disabled = true;
 
-        form.innerHTML = `
-            <div style="
-                grid-column: 1 / -1;
-                text-align: center;
-                padding: 60px 20px;
-            ">
+        button.innerText =
+            "SUBMITTING...";
 
-                <h2>Application Received.</h2>
 
-                <p style="
-                    margin-top: 15px;
-                    color: #666;
-                    font-size: 17px;
-                ">
-                    Thank you for reaching out to FitNS.Arc.
-                    We'll get in touch with you soon.
-                </p>
+        const formData =
+            new FormData(form);
 
-            </div>
-        `;
 
-    } catch (error) {
+        try {
 
-        button.disabled = false;
-        button.innerText = "SUBMIT APPLICATION →";
+            await fetch(
 
-        alert(
-            "Something went wrong. Please try again."
-        );
+                "https://script.google.com/macros/s/AKfycbziMQXjik3_4Spw6X7UG5qctLw_edk50ePjY04RvcB-eO15WrLdLR5ofZCA2p7QhjO0/exec",
+
+                {
+
+                    method: "POST",
+
+                    body: formData,
+
+                    mode: "no-cors"
+
+                }
+
+            );
+
+
+            form.innerHTML = `
+
+                <div class="success-message">
+
+                    <h2>
+                        Application Received.
+                    </h2>
+
+                    <p>
+
+                        Thank you for reaching out
+                        to FitNS.Arc.
+
+                        We've received your application
+                        and will get in touch with you soon.
+
+                    </p>
+
+                    <a href="index.html">
+
+                        BACK TO FITNS.ARC →
+
+                    </a>
+
+                </div>
+
+            `;
+
+
+        } catch (error) {
+
+            button.disabled = false;
+
+            button.innerText =
+                "SUBMIT APPLICATION →";
+
+
+            alert(
+                "Something went wrong. Please try again."
+            );
+
+
+            console.error(error);
+
+        }
 
     }
 
-});
+);
 
 </script>
+
+
 </body>
 
 </html>
